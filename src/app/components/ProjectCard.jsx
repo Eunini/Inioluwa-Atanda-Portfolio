@@ -4,8 +4,8 @@ import Link from "next/link";
 
 const ProjectCard = ({ imgUrl, title, description, previewUrl }) => {
   return (
-    <div className="group">
-      <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl dark:shadow-lg dark:hover:shadow-2xl transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
+    <div className="group perspective-1000">
+      <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-2xl dark:shadow-lg dark:hover:shadow-3xl transition-all duration-500 border border-gray-200 dark:border-gray-700 hover:scale-105 hover:-translate-y-2 preserve-3d hover:rotate-y-12">
         <div
           className="h-48 sm:h-56 md:h-64 lg:h-72 relative group/image"
           style={{ background: `url(${imgUrl})`, backgroundSize: "cover", backgroundPosition: "center" }}

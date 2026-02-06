@@ -4,19 +4,36 @@ import React, { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
+import { usePortfolio } from "../context/PortfolioContext";
 
 const navLinks = [
   {
-    title: "About",
-    path: "#about",
+    title: "Home",
+    path: "/",
   },
   {
-    title: "Projects",
-    path: "#projects",
+    title: "Leadership & Impact",
+    path: "/leadership",
+  },
+  {
+    title: "Career & Innovation",
+    path: "/career",
+  },
+  {
+    title: "SDG Work",
+    path: "/sdg-work",
+  },
+  {
+    title: "Initiatives",
+    path: "/initiatives",
+  },
+  {
+    title: "Recognition",
+    path: "/recognition",
   },
   {
     title: "Contact",
-    path: "#contact",
+    path: "/contact",
   },
 ];
 

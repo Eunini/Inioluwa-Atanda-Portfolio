@@ -13,20 +13,6 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "Erande",
-    description: "A comprehensive vendor dashboard platform that empowers sellers to showcase their products, manage inventory, track orders, and streamline their business operations with real-time analytics.",
-    image: "/images/projects/erande.png",
-    previewUrl: "https://test-vendor.useerande.com/",
-  },
-  {
-    id: 3,
-    title: "Ngwater",
-    description: "An advanced water logging system designed for geologists to record, track, and analyze water data. Provides comprehensive tools for geological surveys and water resource management.",
-    image: "/images/projects/ngwater.png",
-    previewUrl: "https://ngwater.app/",
-  },
-  {
-    id: 4,
     title: "Repropack",
     description: "An innovative Python project packaging solution that simplifies deployment across different machines. Enables one-click setup and seamless project migration with automated dependency management.",
     image: "/images/projects/repropack.png",

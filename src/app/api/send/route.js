@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL;
-
 export async function POST(req, res) {
   try {
     // Check if required environment variables are set
@@ -14,6 +11,9 @@ export async function POST(req, res) {
         { status: 500 }
       );
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const fromEmail = process.env.FROM_EMAIL;
 
     if (!fromEmail) {
       console.error("FROM_EMAIL is not set in environment variables");
