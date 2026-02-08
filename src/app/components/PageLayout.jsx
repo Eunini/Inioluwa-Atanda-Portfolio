@@ -16,7 +16,7 @@ export default function PageLayout({ children, track = "leadership" }) {
   ];
   
   const careerLinks = [
-    { name: "Career", href: "/career" },
+    { name: "Tech Career", href: "/career" },
   ];
   
   const links = isLeadership ? leadershipLinks : careerLinks;

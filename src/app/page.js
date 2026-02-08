@@ -27,7 +27,7 @@ export default function Home() {
               Leadership
             </Link>
             <Link href="/career" className="text-xs tracking-widest uppercase text-white/60 hover:text-white transition-colors hidden sm:block">
-              Career
+              Tech Career
             </Link>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 0.8 }}
             className="text-xs tracking-[0.3em] uppercase text-white/30 mb-6"
           >
-            Youth Leader · SDG Advocate · AI Engineer
+            Youth Leader · SDG Advocate · AI Software Developer
           </motion.p>
 
           <motion.h1
@@ -93,7 +93,7 @@ export default function Home() {
               href="/career"
               className="group inline-flex items-center gap-3 px-7 py-3.5 border border-white/15 text-white/80 text-sm font-semibold tracking-wide rounded-full hover:border-white/40 hover:text-white transition-all duration-300"
             >
-              Career Portfolio
+              Tech Career Portfolio
               <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -286,6 +286,7 @@ export default function Home() {
           <div className="flex gap-6">
             <a href="https://github.com/Eunini" target="_blank" rel="noopener noreferrer" className="text-xs text-white/20 hover:text-white/50 transition-colors">GitHub</a>
             <a href="https://x.com/Dev_Qing" target="_blank" rel="noopener noreferrer" className="text-xs text-white/20 hover:text-white/50 transition-colors">X</a>
+            <a href="https://dev.to/eunini" target="_blank" rel="noopener noreferrer" className="text-xs text-white/20 hover:text-white/50 transition-colors">Dev.to</a>
             <a href="mailto:atandainioluwa371@gmail.com" className="text-xs text-white/20 hover:text-white/50 transition-colors">Email</a>
             <a href="https://wa.me/message/TFFG2ETW5L3CH1" target="_blank" rel="noopener noreferrer" className="text-xs text-white/20 hover:text-white/50 transition-colors">WhatsApp</a>
           </div>
