@@ -1,378 +1,256 @@
-import LeadershipNavbar from "../components/LeadershipNavbar";
-import LeadershipFooter from "../components/LeadershipFooter";
+"use client";
+import PageLayout from "../components/PageLayout";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { GiMedal } from "react-icons/gi";
+import { AiFillStar } from "react-icons/ai";
 
-export const metadata = {
-  title: "Leadership & Impact",
-  description: "Inioluwa Atanda's leadership portfolio showcasing governance roles, institution-building initiatives, and youth representation in policy spaces.",
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1, y: 0,
+    transition: { delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  }),
 };
+
+const roles = [
+  {
+    role: "Fellow",
+    org: "African Women Leadership Forum",
+    period: "2025 – Present",
+    desc: "Leadership development and advancing women's representation in African tech ecosystems.",
+    tags: ["Leadership", "Women in Tech", "Africa"],
+  },
+  {
+    role: "Vice President",
+    org: "Computer Science Department, University of Ibadan",
+    period: "2025 – Present",
+    desc: "Leading departmental coordination, student representation in academic governance, and policy development oversight.",
+    tags: ["Governance", "Administration", "Policy"],
+  },
+  {
+    role: "Honorable Representative",
+    org: "Representative Council",
+    period: "2025 – Present",
+    desc: "Legislative representation, committee participation in governance, stakeholder engagement and evidence-based policy advocacy.",
+    tags: ["Legislature", "Policy", "Advocacy"],
+  },
+  {
+    role: "Chapter Lead",
+    org: "Interswitch Developer Community, UI",
+    period: "2025 – Present",
+    desc: "Built a 200+ member developer community. Organized technical workshops, networking events, and established industry partnerships.",
+    tags: ["Community", "200+ Members", "Tech Events"],
+  },
+  {
+    role: "Official Ambassador",
+    org: "Interswitch & Cowrywise",
+    period: "2023 – Present",
+    desc: "Brand representation, educational outreach for fintech awareness, and facilitating industry connections for students.",
+    tags: ["Fintech", "Advocacy", "Outreach"],
+  },
+];
+
+const initiatives = [
+  {
+    name: "Skillsphere Program",
+    tagline: "Practical IT skills for CS students",
+    problem: "Gap between theoretical education and workplace IT readiness for non-CS students.",
+    model: "Modular curriculum with hands-on workshops, peer mentoring, and industry projects.",
+    outcome: "Enhanced employability and digital literacy across disciplines.",
+    color: "blue",
+  },
+  {
+    name: "QUACITO Initiative",
+    tagline: "Applied computing & innovation",
+    problem: "Limited innovation capacity and gaps between theory and practical computing.",
+    model: "Multi-level challenge framework with faculty oversight and industry collaboration.",
+    outcome: "Progressive skill development in computational thinking and algorithm design.",
+    color: "purple",
+  },
+  {
+    name: "Techqings Foundation",
+    tagline: "Gender-equity capacity building for women in tech",
+    problem: "Women underrepresented in technology fields, resulting in lost innovation potential.",
+    model: "Technical training (AI, cybersecurity, DevOps) + mentorship + community building.",
+    outcome: "Ranked Top 30 in I AM GASA competition (Girls Accelerating Sustainable Actions). Increased women in tech pipelines, improved confidence, career advancement.",
+    color: "rose",
+  },
+];
 
 export default function Leadership() {
   return (
-    <div className="min-h-screen bg-white text-gray-900">
-      <LeadershipNavbar />
+    <PageLayout track="leadership">
+      {/* Header */}
+      <motion.section initial="hidden" animate="visible" className="mb-28">
+        <motion.p variants={fadeUp} custom={0} className="text-xs tracking-[0.3em] uppercase text-blue-400/50 mb-4">01 — Leadership Track</motion.p>
+        <motion.h1 variants={fadeUp} custom={1} className="text-5xl sm:text-7xl font-black tracking-tight leading-[0.9] mb-6">
+          LEADERSHIP
+          <br />
+          <span className="text-white/15">&amp; IMPACT</span>
+        </motion.h1>
+        <motion.div variants={fadeUp} custom={2} className="w-12 h-px bg-blue-500/40 mb-6" />
+        <motion.p variants={fadeUp} custom={3} className="text-white/30 text-lg sm:text-xl lg:text-2xl max-w-xl leading-relaxed">
+          Governance, youth representation, and initiatives focused on gender equity 
+          and sustainable development through evidence-based systems building.
+        </motion.p>
+      </motion.section>
 
-      <main className="pt-24 pb-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Overview */}
+      <motion.section 
+        initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+        className="mb-28"
+      >
+        <motion.p variants={fadeUp} custom={0} className="section-label">Overview</motion.p>
+        <motion.div variants={fadeUp} custom={1} className="card p-8 sm:p-10">
+          <p className="text-white/30 leading-[1.8] text-base sm:text-lg lg:text-xl">
+            Dedicated leader driving institutional change and youth empowerment across governance, community building, and women in tech initiatives. Vice President of Computer Science Department at University of Ibadan, leading departmental strategy and student representation in academic governance. Chapter Lead of Interswitch Developer Community with 200+ members, bridging industry and academia through technical excellence. Fellow of African Women Leadership Forum advancing women&apos;s representation in tech ecosystems. Official Ambassador for Interswitch and Cowrywise, championing fintech innovation and digital financial inclusion. Two-time award winner: Department Sportwoman Award and Most Influential Female of the Year. Committed to equity-driven systems building and evidence-based leadership that creates sustainable pathways for underrepresented groups.
+          </p>
+        </motion.div>
+      </motion.section>
 
-          {/* Header */}
-          <section className="mb-16">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Leadership & Impact
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-4xl">
-              Inioluwa Atanda serves in governance structures and leads initiatives focused on youth representation,
-              gender equity, and sustainable development. Her work emphasizes evidence-based approaches to systems
-              building and institutional development.
-            </p>
-          </section>
-
-          {/* Leadership Overview */}
-          <section className="mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Leadership Overview</h2>
-            <div className="bg-gray-50 p-8 rounded-lg">
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Inioluwa Atanda serves as Vice President-elect of the Computer Science Department at the University of Ibadan,
-                where she leads departmental coordination and represents student interests in academic governance. Her role
-                involves facilitating communication between faculty, students, and administration while contributing to
-                decision-making processes that affect departmental policy and resource allocation.
-              </p>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                As Chapter Lead for the Interswitch Developer Community at the University of Ibadan, she established and
-                manages a developer community focused on technology education and professional development. This initiative
-                serves as a bridge between industry and academia, providing students with practical skills and networking
-                opportunities essential for technology careers.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Her work as an Official Ambassador for Interswitch and Cowrywise extends her leadership into fintech advocacy,
-                where she represents these organizations in educational outreach and community engagement activities.
-                This role involves communicating complex financial technology concepts to diverse audiences and promoting
-                digital financial inclusion initiatives.
-              </p>
-            </div>
-          </section>
-
-          {/* Formal Leadership Roles */}
-          <section className="mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Formal Leadership Roles</h2>
-            <div className="grid gap-6">
-
-              {/* Vice President Role */}
-              <div className="bg-white border border-gray-200 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Vice President-elect</h3>
-                <p className="text-blue-600 mb-1">Computer Science Department, University of Ibadan</p>
-                <p className="text-gray-500 text-sm mb-4">2024 - Present</p>
-                <div className="mb-4">
-                  <h4 className="font-medium text-gray-900 mb-2">Scope of Responsibility</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Departmental coordination and administration</li>
-                    <li>• Student representation in academic governance</li>
-                    <li>• Policy development and implementation oversight</li>
-                    <li>• Resource allocation and budget management</li>
-                  </ul>
-                </div>
+      {/* Formal Roles */}
+      <motion.section 
+        initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+        className="mb-28"
+      >
+        <motion.p variants={fadeUp} custom={0} className="section-label">Formal Leadership Roles</motion.p>
+        <div className="space-y-3">
+          {roles.map((item, i) => (
+            <motion.div key={i} variants={fadeUp} custom={i + 1} className="card p-6 sm:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                 <div>
-                  <h4 className="font-medium text-gray-900 mb-2">Key Contributions</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Established structured communication channels between stakeholders</li>
-                    <li>• Implemented feedback mechanisms for continuous improvement</li>
-                    <li>• Coordinated cross-functional initiatives for departmental development</li>
-                  </ul>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold">{item.role}</h3>
+                  <p className="text-blue-400/50 text-sm sm:text-base lg:text-lg mt-0.5">{item.org}</p>
                 </div>
+                <span className="badge badge-blue flex-shrink-0">{item.period}</span>
               </div>
-
-              {/* Representative Council Role */}
-              <div className="bg-white border border-gray-200 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Honorable</h3>
-                <p className="text-blue-600 mb-1">Representative Council</p>
-                <p className="text-gray-500 text-sm mb-4">2023 - Present</p>
-                <div className="mb-4">
-                  <h4 className="font-medium text-gray-900 mb-2">Scope of Responsibility</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Legislative representation and policy advocacy</li>
-                    <li>• Committee participation in governance decisions</li>
-                    <li>• Stakeholder engagement and consensus building</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900 mb-2">Key Contributions</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Contributed to policy development affecting student welfare</li>
-                    <li>• Facilitated dialogue between administration and student body</li>
-                    <li>• Promoted evidence-based decision making in governance</li>
-                  </ul>
-                </div>
+              <p className="text-white/25 text-sm sm:text-base lg:text-lg leading-relaxed mb-4">{item.desc}</p>
+              <div className="flex flex-wrap gap-2">
+                {item.tags.map((tag) => (
+                  <span key={tag} className="text-[10px] text-white/20 px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.04]">{tag}</span>
+                ))}
               </div>
-
-              {/* Chapter Lead Role */}
-              <div className="bg-white border border-gray-200 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Chapter Lead</h3>
-                <p className="text-blue-600 mb-1">Interswitch Developer Community, University of Ibadan</p>
-                <p className="text-gray-500 text-sm mb-4">2023 - Present</p>
-                <div className="mb-4">
-                  <h4 className="font-medium text-gray-900 mb-2">Scope of Responsibility</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Community management and growth</li>
-                    <li>• Program development and execution</li>
-                    <li>• Industry-academia collaboration facilitation</li>
-                    <li>• Member development and mentorship</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900 mb-2">Key Contributions</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Built active developer community of 200+ members</li>
-                    <li>• Organized technical workshops and industry networking events</li>
-                    <li>• Established partnerships with technology companies</li>
-                    <li>• Created pathways for student professional development</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Brand Ambassador Role */}
-              <div className="bg-white border border-gray-200 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Official Ambassador</h3>
-                <p className="text-blue-600 mb-1">Interswitch & Cowrywise</p>
-                <p className="text-gray-500 text-sm mb-4">2023 - Present</p>
-                <div className="mb-4">
-                  <h4 className="font-medium text-gray-900 mb-2">Scope of Responsibility</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Brand representation and advocacy</li>
-                    <li>• Educational outreach and community engagement</li>
-                    <li>• Partnership development and relationship management</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900 mb-2">Key Contributions</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Represented organizations in university and community settings</li>
-                    <li>• Developed educational content for fintech awareness</li>
-                    <li>• Facilitated industry connections for students and faculty</li>
-                  </ul>
-                </div>
-              </div>
-
-            </div>
-          </section>
-
-          {/* Initiatives Founded */}
-          <section className="mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Initiatives Founded</h2>
-
-            {/* Skillsphere Program */}
-            <div className="bg-white border border-gray-200 p-8 rounded-lg mb-8">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Skillsphere Program</h3>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Problem Definition</h4>
-                <p className="text-gray-700">
-                  Computer Science curricula often focus on theoretical foundations but leave gaps in practical IT skills
-                  needed for modern workplaces. Students outside the CS department lack access to technology training
-                  essential for digital economy participation.
-                </p>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Target Population</h4>
-                <p className="text-gray-700">
-                  Undergraduate students from non-technical disciplines seeking to develop practical IT competencies
-                  for career advancement and digital literacy.
-                </p>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Intervention Model</h4>
-                <p className="text-gray-700 mb-3">
-                  Structured training program combining theoretical instruction with hands-on application:
-                </p>
-                <ul className="text-gray-700 space-y-1 ml-4">
-                  <li>• Modular curriculum covering essential IT skills</li>
-                  <li>• Practical workshops with real-world applications</li>
-                  <li>• Peer mentoring and collaborative learning</li>
-                  <li>• Industry-relevant project work</li>
-                </ul>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Outcomes</h4>
-                <ul className="text-gray-700 space-y-1">
-                  <li>• Enhanced employability through practical skill development</li>
-                  <li>• Improved digital literacy across disciplines</li>
-                  <li>• Increased access to technology education for underrepresented groups</li>
-                  <li>• Established sustainable training framework for ongoing implementation</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Scalability Potential</h4>
-                <p className="text-gray-700">
-                  Program framework can be adapted for other institutions and expanded to include advanced topics.
-                  Partnership model enables resource sharing and broader implementation across university systems.
-                </p>
-              </div>
-            </div>
-
-            {/* QUACITO Initiative */}
-            <div className="bg-white border border-gray-200 p-8 rounded-lg">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">QUACITO Initiative</h3>
-              <p className="text-gray-600 mb-6 italic">
-                Applied computing, innovation, and problem-solving intervention in tertiary education
-              </p>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Objectives</h4>
-                <ul className="text-gray-700 space-y-1">
-                  <li>• Promote advanced computing and innovation in academic settings</li>
-                  <li>• Develop problem-solving competencies through structured challenges</li>
-                  <li>• Foster collaboration between faculty, industry, and students</li>
-                  <li>• Create pathways for technology-driven educational innovation</li>
-                </ul>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Structure</h4>
-                <p className="text-gray-700 mb-3">
-                  Multi-level challenge framework designed for progressive skill development:
-                </p>
-                <ul className="text-gray-700 space-y-1 ml-4">
-                  <li>• Foundational challenges focusing on core computing concepts</li>
-                  <li>• Intermediate problems requiring algorithmic thinking</li>
-                  <li>• Advanced challenges involving system design and optimization</li>
-                  <li>• Innovation tracks for creative problem-solving approaches</li>
-                </ul>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Skills Tested</h4>
-                <ul className="text-gray-700 space-y-1">
-                  <li>• Computational thinking and algorithm design</li>
-                  <li>• Problem decomposition and solution architecture</li>
-                  <li>• Code efficiency and optimization techniques</li>
-                  <li>• Innovation and creative problem-solving</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Faculty + Industry Involvement</h4>
-                <p className="text-gray-700">
-                  Initiative involves Computer Science faculty for academic oversight and industry partners for
-                  real-world problem scenarios and mentorship. This collaboration ensures relevance to current
-                  technology industry standards and provides participants with professional networking opportunities.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Women's Rights & Gender Equity */}
-          <section className="mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Women&apos;s Rights & Gender Equity</h2>
-
-            <div className="bg-white border border-gray-200 p-8 rounded-lg">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Techqings Foundation</h3>
-              <p className="text-gray-600 mb-6 italic">
-                A gender-equity intervention focused on capacity building for women in technology
-              </p>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Gender Gap Problem Statement</h4>
-                <p className="text-gray-700">
-                  Women remain underrepresented in technology fields despite comprising half of the global population.
-                  This gap results in lost innovation potential and perpetuates gender disparities in economic
-                  opportunities and digital access.
-                </p>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Target Demographics</h4>
-                <p className="text-gray-700">
-                  Women and girls aged 18-35 pursuing technology education or careers, with focus on those facing
-                  systemic barriers to entry and advancement in technology sectors.
-                </p>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Technical Focus Areas</h4>
-                <ul className="text-gray-700 space-y-1">
-                  <li>• Artificial Intelligence and Machine Learning</li>
-                  <li>• Cybersecurity fundamentals and practices</li>
-                  <li>• DevOps and cloud computing</li>
-                  <li>• Software development and programming</li>
-                </ul>
-              </div>
-
-              <div className="mb-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-2">Mentorship & Empowerment Model</h4>
-                <p className="text-gray-700 mb-3">
-                  Structured support system combining technical training with professional development:
-                </p>
-                <ul className="text-gray-700 space-y-1 ml-4">
-                  <li>• One-on-one mentorship with industry professionals</li>
-                  <li>• Peer support networks and community building</li>
-                  <li>• Leadership development and career guidance</li>
-                  <li>• Networking opportunities and industry exposure</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-medium text-gray-900 mb-2">SDG Relevance</h4>
-                <p className="text-gray-700">
-                  Initiative directly supports SDG 5 (Gender Equality) by addressing gender disparities in technology
-                  access and participation. Contributes to SDG 4 (Quality Education) through targeted skill development
-                  and SDG 8 (Decent Work) by improving economic opportunities for women in high-growth technology sectors.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Leadership Philosophy */}
-          <section className="mb-16">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Leadership Philosophy</h2>
-            <div className="bg-gray-50 p-8 rounded-lg">
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Effective leadership requires balancing youth perspectives with institutional responsibilities.
-                My approach emphasizes evidence-based decision making, accountability, and long-term systems thinking.
-              </p>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Youth representation must go beyond symbolic participation to include meaningful contributions
-                to governance processes. This involves building capacity for informed decision making and
-                fostering environments where young voices can influence policy outcomes.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                Equity and access form the foundation of sustainable development. Leadership roles carry
-                responsibility to ensure that institutional processes serve diverse constituencies and
-                create pathways for underrepresented groups to participate in decision making.
-              </p>
-            </div>
-          </section>
-
-          {/* Navigation Links */}
-          <section className="text-center">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/sdg-work"
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-medium"
-              >
-                View SDG Work
-              </Link>
-              <Link
-                href="/initiatives"
-                className="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors duration-300 font-medium"
-              >
-                View Initiatives
-              </Link>
-              <Link
-                href="/recognition"
-                className="inline-block bg-white text-gray-900 border-2 border-gray-900 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors duration-300 font-medium"
-              >
-                View Recognition
-              </Link>
-            </div>
-          </section>
-
+            </motion.div>
+          ))}
         </div>
-      </main>
+      </motion.section>
 
-      <LeadershipFooter />
-    </div>
+      {/* Initiatives */}
+      <motion.section 
+        initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+        className="mb-28"
+      >
+        <motion.p variants={fadeUp} custom={0} className="section-label">Initiatives Founded</motion.p>
+        <div className="space-y-3">
+          {initiatives.map((init, i) => (
+            <motion.div key={i} variants={fadeUp} custom={i + 1} className="card p-6 sm:p-8">
+              <div className="mb-5">
+                <div className="flex items-center gap-3 mb-2">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold">{init.name}</h3>
+                  <span className={`badge badge-${init.color}`}>{init.tagline}</span>
+                </div>
+              </div>
+              <div className="grid sm:grid-cols-3 gap-6">
+                <div>
+                  <p className="text-[10px] tracking-[0.15em] uppercase text-white/15 mb-2">Problem</p>
+                  <p className="text-white/25 text-sm sm:text-base lg:text-lg leading-relaxed">{init.problem}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.15em] uppercase text-white/15 mb-2">Model</p>
+                  <p className="text-white/25 text-sm sm:text-base lg:text-lg leading-relaxed">{init.model}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.15em] uppercase text-white/15 mb-2">Outcome</p>
+                  <p className="text-white/25 text-sm sm:text-base lg:text-lg leading-relaxed">{init.outcome}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Awards & Recognition */}
+      <motion.section 
+        initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+        className="mb-28"
+      >
+        <motion.p variants={fadeUp} custom={0} className="section-label">Awards & Recognition</motion.p>
+        <div className="grid sm:grid-cols-2 gap-3">
+          <motion.div variants={fadeUp} custom={1} className="card p-6 sm:p-8">
+            <div className="flex items-start gap-4">
+              <GiMedal className="w-8 h-8 text-yellow-500 flex-shrink-0" />
+              <div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">Department Sportwoman Award</h3>
+                <p className="text-white/20 text-sm sm:text-base lg:text-lg">Recognized for athletic excellence and representing the Computer Science Department with distinction in university sports competitions.</p>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div variants={fadeUp} custom={2} className="card p-6 sm:p-8">
+            <div className="flex items-start gap-4">
+              <AiFillStar className="w-8 h-8 text-cyan-400 flex-shrink-0" />
+              <div>
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2">Most Influential Female of the Year</h3>
+                <p className="text-white/20 text-sm sm:text-base lg:text-lg">Honored for exceptional leadership impact, mentorship contributions, and advancing women&apos;s representation across institutional initiatives.</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Leadership Philosophy */}
+      <motion.section 
+        initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+        className="mb-28"
+      >
+        <motion.p variants={fadeUp} custom={0} className="section-label">Leadership Certifications</motion.p>
+        <motion.div variants={fadeUp} custom={1} className="card p-6 sm:p-8">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-sm sm:text-base lg:text-lg font-semibold">Harvard Aspire Leadership Program</h3>
+              <p className="text-white/20 text-xs sm:text-sm lg:text-base mt-1">Leadership Development & Systems Thinking</p>
+            </div>
+            <span className="badge badge-blue">2024</span>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      {/* Leadership Philosophy */}
+      <motion.section 
+        initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+        className="mb-28"
+      >
+        <motion.p variants={fadeUp} custom={0} className="section-label">Leadership Philosophy</motion.p>
+        <motion.div variants={fadeUp} custom={1} className="card p-8 sm:p-10">
+          <div className="space-y-5 text-white/25 text-base sm:text-lg lg:text-xl leading-[1.8]">
+            <p>
+              Effective leadership requires balancing youth perspectives with institutional responsibilities. 
+              Evidence-based decision making, accountability, and long-term systems thinking guide every initiative.
+            </p>
+            <p>
+              Youth representation must include meaningful contributions to governance — building capacity 
+              for informed decision making and influencing policy outcomes beyond symbolic participation.
+            </p>
+            <p>
+              Equity and access form the foundation of sustainable development. Leadership carries 
+              responsibility to create pathways for underrepresented groups and ensure inclusive governance.
+            </p>
+          </div>
+        </motion.div>
+      </motion.section>
+
+      {/* Navigation Links */}
+      <section className="flex flex-wrap gap-3 justify-center">
+        {[
+          { name: "SDG Work", href: "/sdg-work" },
+          { name: "Initiatives", href: "/initiatives" },
+          { name: "Recognition", href: "/recognition" },
+        ].map((link) => (
+          <Link key={link.href} href={link.href} className="text-xs px-5 py-2.5 rounded-full border border-white/[0.06] text-white/30 hover:border-white/15 hover:text-white/60 transition-all">
+            {link.name} →
+          </Link>
+        ))}
+      </section>
+    </PageLayout>
   );
 }

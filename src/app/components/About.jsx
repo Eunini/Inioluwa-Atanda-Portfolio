@@ -4,7 +4,7 @@ import { SiNextdotjs, SiRedux, SiReact, SiFirebase, SiJavascript, SiHtml5, SiCss
 import {TbBrandThreejs, TbBrandNodejs} from "react-icons/tb";
 import {FaAws} from "react-icons/fa";
 import {DiJenkins, DiKubernetes} from "react-icons/di";
-import {SiTerraform, SiPytorch, SiTensorflow, SiScikitlearn, SiPandas, SiNumpy, SiJupyter, SiGrafana, SiPrometheus} from "react-icons/si";
+import {SiTerraform, SiPytorch, SiTensorflow, SiScikitlearn, SiPandas, SiNumpy, SiJupyter, SiGrafana, SiPrometheus, SiOpenai, SiHuggingface} from "react-icons/si";
 import TabButton from "../components/TabButton";
 import { usePortfolio } from "../context/PortfolioContext";
 
@@ -130,31 +130,31 @@ const AboutSection = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold text-white mb-3">AI & Machine Learning Tools</h4>
+            <h4 className="text-lg font-semibold text-white mb-3">AI Automation & Agents</h4>
             <ul className="flex flex-wrap gap-4 justify-start items-center">
               <li className="flex flex-col items-center">
-                <SiTensorflow size={40} title="TensorFlow" className="text-orange-500" />
-                <span className="text-xs text-gray-400 mt-1">TensorFlow</span>
+                <SiOpenai size={40} title="OpenAI" className="text-white" />
+                <span className="text-xs text-gray-400 mt-1">OpenAI APIs</span>
               </li>
               <li className="flex flex-col items-center">
-                <SiPytorch size={40} title="PyTorch" className="text-red-500" />
-                <span className="text-xs text-gray-400 mt-1">PyTorch</span>
+                <SiHuggingface size={40} title="Hugging Face" className="text-yellow-400" />
+                <span className="text-xs text-gray-400 mt-1">Hugging Face</span>
               </li>
               <li className="flex flex-col items-center">
-                <SiScikitlearn size={40} title="Scikit-learn" className="text-orange-600" />
-                <span className="text-xs text-gray-400 mt-1">Scikit-learn</span>
+                <SiPython size={40} title="LangChain" className="text-blue-500" />
+                <span className="text-xs text-gray-400 mt-1">LangChain</span>
               </li>
               <li className="flex flex-col items-center">
-                <SiPandas size={40} title="Pandas" className="text-blue-600" />
-                <span className="text-xs text-gray-400 mt-1">Pandas</span>
+                <SiDocker size={40} title="Agent Frameworks" className="text-blue-500" />
+                <span className="text-xs text-gray-400 mt-1">Agent Frameworks</span>
               </li>
               <li className="flex flex-col items-center">
-                <SiNumpy size={40} title="NumPy" className="text-blue-500" />
-                <span className="text-xs text-gray-400 mt-1">NumPy</span>
+                <SiFirebase size={40} title="Vector DB" className="text-orange-500" />
+                <span className="text-xs text-gray-400 mt-1">Vector Databases</span>
               </li>
               <li className="flex flex-col items-center">
-                <SiJupyter size={40} title="Jupyter" className="text-orange-400" />
-                <span className="text-xs text-gray-400 mt-1">Jupyter</span>
+                <SiTypescript size={40} title="Automation" className="text-blue-600" />
+                <span className="text-xs text-gray-400 mt-1">Automation Tools</span>
               </li>
             </ul>
           </div>
@@ -257,6 +257,11 @@ const AboutSection = () => {
               <li className="border-l-4 border-purple-500 pl-4">
                 <h5 className="text-purple-400 font-medium">Official Ambassador - Interswitch & Cowrywise</h5>
                 <p className="text-gray-300 text-sm">Representing leading fintech companies in educational outreach</p>
+                <p className="text-gray-400 text-xs mt-1">Backend Team Lead @ Cowrywise (2024-2025)</p>
+              </li>
+              <li className="border-l-4 border-pink-500 pl-4">
+                <h5 className="text-pink-400 font-medium">Policy & Advocate Lead - IgniteHer Unibadan Chapter</h5>
+                <p className="text-gray-300 text-sm">Driving policy advocacy and gender equity initiatives in tech</p>
               </li>
             </ul>
           </div>
@@ -311,7 +316,7 @@ const AboutSection = () => {
             <div className="space-y-2">
               <div className="flex items-center">
                 <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                <span className="text-gray-300">AI & Machine Learning</span>
+                <span className="text-gray-300">Artificial Intelligence</span>
               </div>
               <div className="flex items-center">
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
@@ -326,7 +331,7 @@ const AboutSection = () => {
           
           <div className="bg-gray-800/50 p-6 rounded-lg">
             <h4 className="text-xl font-semibold text-white mb-3">Harvard ALP Alumni</h4>
-            <p className="text-gray-300">Completed Harvard Advanced Leadership Program, bringing global leadership insights to local initiatives</p>
+            <p className="text-gray-300">Completed Harvard Aspire Leadership Program, bringing global leadership insights to local initiatives</p>
           </div>
         </div>
       ),

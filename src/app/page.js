@@ -1,221 +1,296 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import HomeHero3D from "./components/HomeHero3D";
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { MdCalendarToday } from "react-icons/md";
 
-export const metadata = {
-  title: "Inioluwa Atanda | Youth Leader & Tech Professional",
-  description: "Inioluwa Atanda - Youth Leader, SDG Advocate, and AI & Innovation Professional. Two portfolios: Leadership & Impact, and Career & Innovation.",
-  openGraph: {
-    title: "Inioluwa Atanda | Youth Leader & Tech Professional",
-    description: "Youth Leader, SDG Advocate, AI Software Engineer, and Cloud DevOps Professional",
-    images: [
-      {
-        url: "/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Inioluwa Atanda",
-      }
-    ],
-  }
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  }),
 };
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
-      <Navbar />
+    <div className="min-h-screen bg-black text-white">
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 pt-20 pb-16 overflow-hidden">
-        {/* Three.js 3D Background */}
-        <HomeHero3D />
+      {/* Fixed Nav */}
+      <nav className="fixed top-0 w-full z-50 mix-blend-difference">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 py-6 flex items-center justify-between">
+          <Link href="/" className="text-sm font-medium tracking-widest uppercase">
+            Inioluwa Atanda
+          </Link>
+          <div className="flex items-center gap-8">
+            <Link href="/leadership" className="text-xs tracking-widest uppercase text-white/60 hover:text-white transition-colors hidden sm:block">
+              Leadership
+            </Link>
+            <Link href="/career" className="text-xs tracking-widest uppercase text-white/60 hover:text-white transition-colors hidden sm:block">
+              Career
+            </Link>
+          </div>
+        </div>
+      </nav>
 
-        {/* Animated CSS Background Elements (fallback) */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
+      {/* ======== HERO ======== */}
+      <section className="relative min-h-screen flex flex-col justify-center px-6 sm:px-10">
+        {/* Background accent */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-blue-500/[0.03] rounded-full blur-[150px]" />
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-cyan-500/[0.02] rounded-full blur-[120px]" />
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <div className="mb-8 inline-block px-4 py-2 bg-blue-500/10 border border-blue-500/50 rounded-full text-blue-300 text-sm font-semibold">
-            WELCOME TO MY PROFESSIONAL PORTFOLIO
-          </div>
+        <div className="max-w-[1400px] mx-auto w-full relative z-10">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-xs tracking-[0.3em] uppercase text-white/30 mb-6"
+          >
+            Youth Leader · SDG Advocate · AI Engineer
+          </motion.p>
 
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-6 bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-200 bg-clip-text text-transparent">
-            INIOLUWA ATANDA
-          </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-[clamp(3rem,10vw,9rem)] font-black leading-[0.85] tracking-tight"
+          >
+            INIOLUWA
+            <br />
+            <span className="text-gradient">ATANDA</span>
+          </motion.h1>
 
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full mx-auto mb-8"></div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="mt-8 max-w-md"
+          >
+            <p className="text-white/35 text-sm sm:text-base leading-relaxed">
+              Two portfolios. One for governance, advocacy & sustainable development. 
+              One for AI, cloud infrastructure & technical innovation.
+            </p>
+          </motion.div>
 
-          <p className="text-xl sm:text-2xl text-gray-300 mb-4 font-light tracking-wide">
-            Youth Leader | SDG Advocate | AI Engineer | Systems Builder
-          </p>
-
-          <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Two distinct professional portfolios showcasing leadership in governance & sustainable development, 
-            and technical expertise in AI, DevOps, and cloud infrastructure.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.6 }}
+            className="mt-10 flex flex-wrap gap-4"
+          >
             <Link
               href="/leadership"
-              className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg font-bold text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/40"
+              className="group inline-flex items-center gap-3 px-7 py-3.5 bg-white text-black text-sm font-semibold tracking-wide rounded-full hover:bg-white/90 transition-all duration-300"
             >
-              <span className="relative z-10">Leadership Portfolio</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              Leadership Portfolio
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </Link>
-
             <Link
               href="/career"
-              className="group relative px-8 py-4 border-2 border-cyan-400/50 text-cyan-300 rounded-lg font-bold text-lg hover:border-cyan-300 hover:text-white transition-all duration-300 hover:bg-cyan-500/10"
+              className="group inline-flex items-center gap-3 px-7 py-3.5 border border-white/15 text-white/80 text-sm font-semibold tracking-wide rounded-full hover:border-white/40 hover:text-white transition-all duration-300"
             >
-              Tech & Innovation Portfolio
+              Career Portfolio
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </Link>
-          </div>
+            <Link
+              href="https://calendar.app.google/HSB6gbDQXCixzhYE7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-7 py-3.5 border border-cyan-400/40 text-cyan-300/80 text-sm font-semibold tracking-wide rounded-full hover:border-cyan-400 hover:text-cyan-300 transition-all duration-300"
+            >
+              <MdCalendarToday className="w-4 h-4" /> Book a Session
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </motion.div>
+        </div>
 
-          <p className="text-gray-500 text-sm">Scroll to explore both portfolios</p>
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
+          <span className="text-[10px] tracking-[0.3em] uppercase text-white/15">Scroll</span>
+          <div className="w-px h-8 bg-gradient-to-b from-white/20 to-transparent" />
+        </motion.div>
+      </section>
+
+      {/* ======== TWO PORTFOLIOS SECTION ======== */}
+      <section className="py-32 sm:py-40 px-6 sm:px-10">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="mb-20"
+          >
+            <motion.p variants={fadeUp} custom={0} className="section-label">Two-In-One Portfolio</motion.p>
+            <motion.h2 variants={fadeUp} custom={1} className="text-4xl sm:text-6xl font-black tracking-tight">
+              CHOOSE YOUR
+              <br />
+              <span className="text-white/20">PATH.</span>
+            </motion.h2>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            {/* Leadership Card */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <motion.div variants={fadeUp} custom={0}>
+                <Link href="/leadership" className="group block">
+                  <div className="card card-blue p-8 sm:p-10 h-full relative overflow-hidden">
+                    {/* Large bg number */}
+                    <span className="absolute -top-8 -right-4 text-[180px] font-black text-white/[0.015] select-none leading-none group-hover:text-blue-500/[0.04] transition-colors duration-700">
+                      01
+                    </span>
+
+                    <div className="relative z-10">
+                      <div className="badge badge-blue mb-6">Leadership & Impact</div>
+                      
+                      <h3 className="text-2xl sm:text-3xl font-bold mb-4 tracking-tight">
+                        Governance, Advocacy
+                        <br />
+                        <span className="text-white/30">& Sustainable Development</span>
+                      </h3>
+                      
+                      <p className="text-white/25 text-sm leading-relaxed mb-8 max-w-md">
+                        For policy reviewers, stakeholders, and those evaluating youth leadership, 
+                        institutional governance, and SDG-aligned programs.
+                      </p>
+
+                      <div className="grid grid-cols-2 gap-3 mb-8">
+                        {["Youth Governance", "SDG Initiatives", "Gender Equity", "Education Programs"].map((item) => (
+                          <div key={item} className="flex items-center gap-2">
+                            <div className="w-1 h-1 rounded-full bg-blue-400/50" />
+                            <span className="text-xs text-white/30">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center gap-2 text-sm text-blue-400/80 font-medium group-hover:gap-3 transition-all duration-300">
+                        View Portfolio
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            </motion.div>
+
+            {/* Career Card */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              <motion.div variants={fadeUp} custom={1}>
+                <Link href="/career" className="group block">
+                  <div className="card card-cyan p-8 sm:p-10 h-full relative overflow-hidden">
+                    <span className="absolute -top-8 -right-4 text-[180px] font-black text-white/[0.015] select-none leading-none group-hover:text-cyan-500/[0.04] transition-colors duration-700">
+                      02
+                    </span>
+
+                    <div className="relative z-10">
+                      <div className="badge badge-cyan mb-6">Career & Innovation</div>
+                      
+                      <h3 className="text-2xl sm:text-3xl font-bold mb-4 tracking-tight">
+                        AI, Cloud, &
+                        <br />
+                        <span className="text-white/30">Systems Architecture</span>
+                      </h3>
+                      
+                      <p className="text-white/25 text-sm leading-relaxed mb-8 max-w-md">
+                        For tech companies, hiring managers, and those evaluating technical expertise 
+                        in AI, cloud infrastructure, and software engineering.
+                      </p>
+
+                      <div className="grid grid-cols-2 gap-3 mb-8">
+                        {["Artificial Intelligence", "Cloud & DevOps", "Full-Stack Dev", "Certifications"].map((item) => (
+                          <div key={item} className="flex items-center gap-2">
+                            <div className="w-1 h-1 rounded-full bg-cyan-400/50" />
+                            <span className="text-xs text-white/30">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center gap-2 text-sm text-cyan-400/80 font-medium group-hover:gap-3 transition-all duration-300">
+                        View Portfolio
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Portfolio Cards Section */}
-      <section className="py-24 px-4 relative">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-black text-center mb-4">Two Portfolios, One Vision</h2>
-          <p className="text-center text-gray-400 text-lg mb-16 max-w-2xl mx-auto">
-            Explore distinct professional identities tailored for different audiences and impact areas.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
-            {/* Leadership Portfolio Card */}
-            <div className="group relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 border border-slate-700 hover:border-blue-500/50 transition-all duration-500 overflow-hidden">
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/5 group-hover:to-cyan-500/5 transition-all duration-500"></div>
-
-              <div className="relative z-10">
-                <div className="inline-block px-3 py-1 bg-blue-500/20 border border-blue-500/50 rounded-full text-blue-300 text-xs font-bold mb-6 uppercase">
-                  Leadership Track
-                </div>
-
-                <h3 className="text-3xl font-black text-white mb-3">Leadership & Impact</h3>
-                
-                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                  For policy reviewers, stakeholders, and those evaluating governance capabilities and youth leadership in sustainable development.
-                </p>
-
-                <div className="mb-8 space-y-3">
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="w-2 h-2 bg-black rounded-full"></span>
-                    </div>
-                    <span className="text-gray-300 text-sm">Leadership roles & governance experience</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="w-2 h-2 bg-black rounded-full"></span>
-                    </div>
-                    <span className="text-gray-300 text-sm">Youth representation & advocacy</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="w-2 h-2 bg-black rounded-full"></span>
-                    </div>
-                    <span className="text-gray-300 text-sm">SDG alignment & impact metrics</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="w-2 h-2 bg-black rounded-full"></span>
-                    </div>
-                    <span className="text-gray-300 text-sm">Gender equity initiatives</span>
-                  </div>
-                </div>
-
+      {/* ======== QUICK LINKS ======== */}
+      <section className="py-20 px-6 sm:px-10 border-t border-white/[0.04]">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.p variants={fadeUp} custom={0} className="section-label mb-8">Explore More</motion.p>
+          </motion.div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { name: "SDG Work", href: "/sdg-work", desc: "Sustainable Development" },
+              { name: "Initiatives", href: "/initiatives", desc: "Programs Founded" },
+              { name: "Recognition", href: "/recognition", desc: "Awards & Appointments" },
+              { name: "Contact", href: "mailto:atandainioluwa371@gmail.com", desc: "Get In Touch" },
+            ].map((link, i) => (
+              <motion.div
+                key={link.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+              >
                 <Link
-                  href="/leadership"
-                  className="inline-block w-full text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all duration-300 font-bold text-sm uppercase tracking-wide group-hover:shadow-lg group-hover:shadow-blue-500/30"
+                  href={link.href}
+                  className="group block p-5 sm:p-6 rounded-xl border border-white/[0.05] hover:border-white/[0.12] transition-all duration-300"
                 >
-                  Explore Portfolio →
+                  <span className="block text-sm font-semibold text-white/70 group-hover:text-white transition-colors mb-1">{link.name}</span>
+                  <span className="text-[11px] text-white/20">{link.desc}</span>
                 </Link>
-              </div>
-            </div>
-
-            {/* Career Portfolio Card */}
-            <div className="group relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-8 border border-slate-700 hover:border-cyan-500/50 transition-all duration-500 overflow-hidden">
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-500"></div>
-
-              <div className="relative z-10">
-                <div className="inline-block px-3 py-1 bg-cyan-500/20 border border-cyan-500/50 rounded-full text-cyan-300 text-xs font-bold mb-6 uppercase">
-                  Tech Track
-                </div>
-
-                <h3 className="text-3xl font-black text-white mb-3">Career & Innovation</h3>
-                
-                <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                  For tech companies, hiring managers, and those evaluating technical expertise in AI, DevOps, and systems architecture.
-                </p>
-
-                <div className="mb-8 space-y-3">
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-cyan-500 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="w-2 h-2 bg-black rounded-full"></span>
-                    </div>
-                    <span className="text-gray-300 text-sm">AI & Machine Learning expertise</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-cyan-500 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="w-2 h-2 bg-black rounded-full"></span>
-                    </div>
-                    <span className="text-gray-300 text-sm">Cloud infrastructure & DevOps</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-cyan-500 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="w-2 h-2 bg-black rounded-full"></span>
-                    </div>
-                    <span className="text-gray-300 text-sm">Full-stack systems design</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-cyan-500 flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="w-2 h-2 bg-black rounded-full"></span>
-                    </div>
-                    <span className="text-gray-300 text-sm">Professional certifications</span>
-                  </div>
-                </div>
-
-                <Link
-                  href="/career"
-                  className="inline-block w-full text-center bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-cyan-500 hover:to-blue-500 transition-all duration-300 font-bold text-sm uppercase tracking-wide group-hover:shadow-lg group-hover:shadow-cyan-500/30"
-                >
-                  Explore Portfolio →
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="mt-16 pt-16 border-t border-slate-700">
-            <h3 className="text-2xl font-bold mb-8 text-center">Quick Navigation</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <Link href="/leadership" className="p-4 border border-slate-600 rounded-lg hover:border-blue-500/50 text-center text-gray-300 hover:text-blue-300 transition-all text-sm font-semibold">
-                Leadership
-              </Link>
-              <Link href="/career" className="p-4 border border-slate-600 rounded-lg hover:border-cyan-500/50 text-center text-gray-300 hover:text-cyan-300 transition-all text-sm font-semibold">
-                Career
-              </Link>
-              <Link href="/recognition" className="p-4 border border-slate-600 rounded-lg hover:border-blue-500/50 text-center text-gray-300 hover:text-blue-300 transition-all text-sm font-semibold">
-                Recognition
-              </Link>
-              <Link href="/sdg-work" className="p-4 border border-slate-600 rounded-lg hover:border-blue-500/50 text-center text-gray-300 hover:text-blue-300 transition-all text-sm font-semibold">
-                SDG Work
-              </Link>
-            </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      <Footer />
+      {/* ======== FOOTER ======== */}
+      <footer className="border-t border-white/[0.04] py-8 px-6 sm:px-10">
+        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/15">© {new Date().getFullYear()} Inioluwa Atanda</p>
+          <div className="flex gap-6">
+            <a href="https://github.com/Eunini" target="_blank" rel="noopener noreferrer" className="text-xs text-white/20 hover:text-white/50 transition-colors">GitHub</a>
+            <a href="https://x.com/Dev_Qing" target="_blank" rel="noopener noreferrer" className="text-xs text-white/20 hover:text-white/50 transition-colors">X</a>
+            <a href="mailto:atandainioluwa371@gmail.com" className="text-xs text-white/20 hover:text-white/50 transition-colors">Email</a>
+            <a href="https://wa.me/message/TFFG2ETW5L3CH1" target="_blank" rel="noopener noreferrer" className="text-xs text-white/20 hover:text-white/50 transition-colors">WhatsApp</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

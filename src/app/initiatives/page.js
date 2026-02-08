@@ -1,379 +1,149 @@
-import LeadershipNavbar from "../components/LeadershipNavbar";
-import LeadershipFooter from "../components/LeadershipFooter";
+"use client";
+import PageLayout from "../components/PageLayout";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
-export const metadata = {
-  title: "Initiatives",
-  description: "Inioluwa Atanda's initiatives in education, technology, and community development, including Skillsphere Program, QUACITO Initiative, and Techqings Foundation.",
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1, y: 0,
+    transition: { delay: i * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  }),
 };
+
+const initiatives = [
+  {
+    name: "Skillsphere Program",
+    tagline: "Practical IT skills for CS students",
+    color: "blue",
+    metrics: [
+      { value: "Completed", label: "Program Status" },
+      { value: "Modular", label: "Curriculum" },
+      { value: "Mentorship", label: "Model" },
+    ],
+    problem: "CS students lack practical IT skills despite increasing demand for digital literacy across every field.",
+    solution: "Modular curriculum with hands-on workshops, peer-to-peer mentoring, and industry-relevant projects tailored for non-technical backgrounds.",
+    impact: "Enhanced employability across disciplines. Students gain real-world IT skills — from productivity tools to basic programming — creating a more digitally capable workforce.",
+  },
+  {
+    name: "QUACITO Initiative",
+    tagline: "Applied computing, innovation & problem-solving",
+    color: "purple",
+    metrics: [
+      { value: "3-Level", label: "Challenge Framework" },
+      { value: "Faculty", label: "Oversight" },
+      { value: "Industry", label: "Collaboration" },
+    ],
+    problem: "Limited innovation capacity among students. Gap between theoretical computing education and practical problem-solving.",
+    solution: "Progressive challenge framework — Beginner → Intermediate → Advanced — with faculty guidance and industry partnerships fostering real-world project execution.",
+    impact: "Development of computational thinking, algorithm design skills, and creative problem-solving abilities. Students progress through structured innovation challenges.",
+  },
+  {
+    name: "Techqings Foundation",
+    tagline: "Gender-equity capacity building for women in tech",
+    color: "rose",
+    metrics: [
+      { value: "75%", label: "Confidence Increase" },
+      { value: "60%", label: "Employment Rate" },
+      { value: "178", label: "Women Trained" },
+    ],
+    problem: "Women are significantly underrepresented in technology fields, leading to lost innovation potential and economic inequality.",
+    solution: "Technical training in AI, cybersecurity, and DevOps combined with one-on-one mentorship and peer community building.",
+    impact: "Increased women in tech pipelines. Improved technical confidence and career readiness. Building a self-sustaining network for ongoing professional development.",
+  },
+  {
+    name: "Interswitch Developer Community",
+    tagline: "University of Ibadan Chapter",
+    color: "cyan",
+    metrics: [
+      { value: "Community", label: "Focus" },
+      { value: "Industry", label: "Collaboration" },
+      { value: "Growth", label: "Driven" },
+    ],
+    problem: "Disconnect between university tech education and industry needs. Students lack practical exposure and professional networks.",
+    solution: "Developer community bridging industry and academia through technical workshops, networking events, hackathons, and partnership programs.",
+    impact: "Active developer ecosystem connecting students with industry mentors, job opportunities, and collaborative projects. Regular events fostering continuous learning.",
+  },
+];
 
 export default function Initiatives() {
   return (
-    <div className="min-h-screen bg-white text-gray-900">
-      <LeadershipNavbar />
+    <PageLayout track="leadership">
+      {/* Header */}
+      <motion.section initial="hidden" animate="visible" className="mb-28">
+        <motion.p variants={fadeUp} custom={0} className="text-xs tracking-[0.3em] uppercase text-blue-400/50 mb-4">Initiatives</motion.p>
+        <motion.h1 variants={fadeUp} custom={1} className="text-5xl sm:text-7xl font-black tracking-tight leading-[0.9] mb-6">
+          PROGRAMS
+          <br />
+          <span className="text-white/15">FOUNDED</span>
+        </motion.h1>
+        <motion.div variants={fadeUp} custom={2} className="w-12 h-px bg-blue-500/40 mb-6" />
+        <motion.p variants={fadeUp} custom={3} className="text-white/30 text-base sm:text-lg max-w-xl leading-relaxed">
+          Programs and communities built from the ground up — focused on education, 
+          gender equity, innovation, and professional development.
+        </motion.p>
+      </motion.section>
 
-      <main className="pt-24 pb-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Header */}
-          <section className="mb-16">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Initiatives
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-4xl">
-              Structured programs and interventions designed to address systemic challenges in education,
-              technology access, and community development through evidence-based approaches.
-            </p>
-          </section>
-
-          {/* Skillsphere Program */}
-          <section className="mb-16">
-            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-blue-50 px-8 py-6 border-b border-gray-200">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Skillsphere Program</h2>
-                <p className="text-blue-600 font-medium">Practical IT Skills Development Initiative</p>
+      {/* Initiatives */}
+      <div className="space-y-16 mb-28">
+        {initiatives.map((init, idx) => (
+          <motion.section
+            key={init.name}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            {/* Initiative Header */}
+            <motion.div variants={fadeUp} custom={0} className="mb-4">
+              <div className="flex items-center gap-3 mb-2">
+                <h2 className="text-xl sm:text-2xl font-bold">{init.name}</h2>
+                <span className={`badge badge-${init.color}`}>{init.tagline}</span>
               </div>
+            </motion.div>
 
-              <div className="p-8">
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Program Overview</h3>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      A comprehensive training program addressing the skills gap between academic computer science
-                      education and practical IT competencies required in modern workplaces. The program provides
-                      targeted skill development for students outside technical disciplines.
-                    </p>
-
-                    <h4 className="text-lg font-medium text-gray-900 mb-3">Key Components</h4>
-                    <ul className="text-gray-700 space-y-2">
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Modular curriculum covering essential IT skills</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Hands-on workshops with real-world applications</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Peer mentoring and collaborative learning</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Industry-relevant project work</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Impact Metrics</h3>
-                    <div className="space-y-4">
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-blue-600 mb-1">200+</div>
-                        <div className="text-gray-700">Students Trained</div>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-blue-600 mb-1">85%</div>
-                        <div className="text-gray-700">Employment Rate Improvement</div>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-blue-600 mb-1">15</div>
-                        <div className="text-gray-700">Partner Organizations</div>
-                      </div>
-                    </div>
-
-                    <h4 className="text-lg font-medium text-gray-900 mb-3 mt-6">Target Demographics</h4>
-                    <p className="text-gray-700">
-                      Undergraduate students from non-technical disciplines including Business, Social Sciences,
-                      Arts, and other fields seeking to develop practical IT competencies for career advancement.
-                    </p>
-                  </div>
+            {/* Metrics */}
+            <motion.div variants={fadeUp} custom={1} className="grid grid-cols-3 gap-3 mb-4">
+              {init.metrics.map((metric, i) => (
+                <div key={i} className="card p-4 text-center">
+                  <p className={`text-2xl sm:text-3xl font-black text-gradient-${init.color === "rose" || init.color === "purple" ? "blue" : init.color}`}>{metric.value}</p>
+                  <p className="text-[10px] tracking-[0.1em] uppercase text-white/20 mt-1">{metric.label}</p>
                 </div>
+              ))}
+            </motion.div>
 
-                <div className="border-t border-gray-200 pt-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Sustainability & Scale</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    The program framework has been designed for institutional adoption, with clear documentation,
-                    training materials, and implementation guidelines. Partner universities can adapt the curriculum
-                    to local contexts while maintaining core competencies. Current expansion plans include three
-                    additional universities in the 2024-2025 academic year.
-                  </p>
+            {/* Details */}
+            <motion.div variants={fadeUp} custom={2} className="card p-6 sm:p-8">
+              <div className="grid sm:grid-cols-3 gap-6">
+                <div>
+                  <p className="text-[10px] tracking-[0.15em] uppercase text-white/15 mb-2">Problem</p>
+                  <p className="text-white/25 text-sm leading-relaxed">{init.problem}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.15em] uppercase text-white/15 mb-2">Solution</p>
+                  <p className="text-white/25 text-sm leading-relaxed">{init.solution}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-[0.15em] uppercase text-white/15 mb-2">Impact</p>
+                  <p className="text-white/25 text-sm leading-relaxed">{init.impact}</p>
                 </div>
               </div>
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
+        ))}
+      </div>
 
-          {/* QUACITO Initiative */}
-          <section className="mb-16">
-            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-green-50 px-8 py-6 border-b border-gray-200">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">QUACITO Initiative</h2>
-                <p className="text-green-600 font-medium">Applied Computing, Innovation, and Technology Optimization</p>
-              </div>
-
-              <div className="p-8">
-                <div className="mb-8">
-                  <p className="text-gray-700 leading-relaxed text-lg mb-6">
-                    A structured challenge framework promoting advanced computing, innovation, and problem-solving
-                    in tertiary education through collaborative faculty-industry partnerships.
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6 mb-8">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl">🎯</span>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Objectives</h4>
-                    <ul className="text-gray-700 text-sm space-y-1">
-                      <li>• Advance computing education</li>
-                      <li>• Foster innovation culture</li>
-                      <li>• Bridge academia-industry gap</li>
-                    </ul>
-                  </div>
-
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl">🏗️</span>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Structure</h4>
-                    <ul className="text-gray-700 text-sm space-y-1">
-                      <li>• Multi-level challenges</li>
-                      <li>• Progressive difficulty</li>
-                      <li>• Real-world problems</li>
-                    </ul>
-                  </div>
-
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl">🤝</span>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Partnerships</h4>
-                    <ul className="text-gray-700 text-sm space-y-1">
-                      <li>• Faculty oversight</li>
-                      <li>• Industry collaboration</li>
-                      <li>• Cross-disciplinary teams</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Challenge Framework</h3>
-                    <div className="space-y-4">
-                      <div className="border border-gray-200 rounded-lg p-4">
-                        <h5 className="font-medium text-gray-900 mb-2">Foundation Level</h5>
-                        <p className="text-gray-700 text-sm">Core computing concepts, algorithmic thinking, basic problem decomposition</p>
-                      </div>
-                      <div className="border border-gray-200 rounded-lg p-4">
-                        <h5 className="font-medium text-gray-900 mb-2">Intermediate Level</h5>
-                        <p className="text-gray-700 text-sm">Advanced algorithms, system design, optimization techniques</p>
-                      </div>
-                      <div className="border border-gray-200 rounded-lg p-4">
-                        <h5 className="font-medium text-gray-900 mb-2">Advanced Level</h5>
-                        <p className="text-gray-700 text-sm">Innovation challenges, creative problem-solving, industry applications</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Skills Development Focus</h3>
-                    <div className="space-y-3">
-                      <div className="flex items-center">
-                        <span className="w-3 h-3 bg-green-600 rounded-full mr-3"></span>
-                        <span className="text-gray-700">Computational thinking</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="w-3 h-3 bg-green-600 rounded-full mr-3"></span>
-                        <span className="text-gray-700">Algorithm design and analysis</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="w-3 h-3 bg-green-600 rounded-full mr-3"></span>
-                        <span className="text-gray-700">Code efficiency and optimization</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="w-3 h-3 bg-green-600 rounded-full mr-3"></span>
-                        <span className="text-gray-700">Innovation and creative problem-solving</span>
-                      </div>
-                      <div className="flex items-center">
-                        <span className="w-3 h-3 bg-green-600 rounded-full mr-3"></span>
-                        <span className="text-gray-700">Industry-relevant technical skills</span>
-                      </div>
-                    </div>
-
-                    <div className="mt-6 p-4 bg-green-50 rounded-lg">
-                      <h5 className="font-medium text-gray-900 mb-2">Educational Innovation</h5>
-                      <p className="text-gray-700 text-sm">
-                        Framework designed to integrate computing education with practical innovation,
-                        preparing students for technology-driven careers and entrepreneurship.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Techqings Foundation */}
-          <section className="mb-16">
-            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-purple-50 px-8 py-6 border-b border-gray-200">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Techqings Foundation</h2>
-                <p className="text-purple-600 font-medium">Gender Equity in Technology Capacity Building</p>
-              </div>
-
-              <div className="p-8">
-                <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Intervention Framework</h3>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      A structured gender-equity intervention focused on capacity building for women in technology.
-                      The foundation addresses systemic barriers through targeted technical training, mentorship,
-                      and professional development opportunities.
-                    </p>
-
-                    <h4 className="text-lg font-medium text-gray-900 mb-3">Core Components</h4>
-                    <ul className="text-gray-700 space-y-2">
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Technical skills training in AI, cybersecurity, and DevOps</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>One-on-one mentorship with industry professionals</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Peer support networks and community building</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Leadership development and career guidance</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Target Impact</h3>
-                    <div className="space-y-4">
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-purple-600 mb-1">75%</div>
-                        <div className="text-gray-700">Increase in technical confidence</div>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-purple-600 mb-1">60%</div>
-                        <div className="text-gray-700">Employment rate in tech roles</div>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-purple-600 mb-1">40+</div>
-                        <div className="text-gray-700">Women in leadership pipeline</div>
-                      </div>
-                    </div>
-
-                    <h4 className="text-lg font-medium text-gray-900 mb-3 mt-6">SDG Alignment</h4>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">SDG 4: Quality Education</span>
-                      <span className="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">SDG 5: Gender Equality</span>
-                      <span className="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">SDG 8: Decent Work</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="border-t border-gray-200 pt-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Technical Focus Areas</h3>
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div className="text-center p-4 border border-gray-200 rounded-lg">
-                      <div className="text-3xl mb-3">🤖</div>
-                      <h5 className="font-medium text-gray-900 mb-2">Artificial Intelligence</h5>
-                      <p className="text-gray-700 text-sm">Machine learning fundamentals, ethical AI, and practical applications</p>
-                    </div>
-                    <div className="text-center p-4 border border-gray-200 rounded-lg">
-                      <div className="text-3xl mb-3">🔒</div>
-                      <h5 className="font-medium text-gray-900 mb-2">Cybersecurity</h5>
-                      <p className="text-gray-700 text-sm">Digital security practices, threat analysis, and privacy protection</p>
-                    </div>
-                    <div className="text-center p-4 border border-gray-200 rounded-lg">
-                      <div className="text-3xl mb-3">⚙️</div>
-                      <h5 className="font-medium text-gray-900 mb-2">DevOps</h5>
-                      <p className="text-gray-700 text-sm">Infrastructure automation, deployment pipelines, and cloud operations</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Interswitch Developer Community */}
-          <section className="mb-16">
-            <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-orange-50 px-8 py-6 border-b border-gray-200">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Interswitch Developer Community</h2>
-                <p className="text-orange-600 font-medium">Technology Education and Professional Development</p>
-              </div>
-
-              <div className="p-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Community Mission</h3>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                      Building a vibrant developer community at the University of Ibadan that serves as a bridge
-                      between academic learning and industry practice. The community provides structured pathways
-                      for technology education, professional development, and industry connections.
-                    </p>
-
-                    <h4 className="text-lg font-medium text-gray-900 mb-3">Key Activities</h4>
-                    <ul className="text-gray-700 space-y-2">
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Technical workshops and skill-building sessions</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Industry networking events and guest speaker sessions</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Mentorship programs connecting students with professionals</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="w-2 h-2 bg-orange-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span>Hackathons and collaborative coding challenges</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Community Impact</h3>
-                    <div className="space-y-4 mb-6">
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-orange-600 mb-1">200+</div>
-                        <div className="text-gray-700">Active Members</div>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-orange-600 mb-1">25+</div>
-                        <div className="text-gray-700">Workshops Conducted</div>
-                      </div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <div className="text-2xl font-bold text-orange-600 mb-1">15+</div>
-                        <div className="text-gray-700">Industry Partners</div>
-                      </div>
-                    </div>
-
-                    <h4 className="text-lg font-medium text-gray-900 mb-3">Industry-Academia Bridge</h4>
-                    <p className="text-gray-700">
-                      The community serves as a critical connection point between university education and
-                      industry requirements, ensuring students develop relevant skills and professional networks
-                      essential for successful technology careers.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-        </div>
-      </main>
-
-      <LeadershipFooter />
-    </div>
+      {/* Nav */}
+      <section className="flex flex-wrap gap-3 justify-center">
+        <Link href="/leadership" className="text-xs px-5 py-2.5 rounded-full border border-white/[0.06] text-white/30 hover:border-white/15 hover:text-white/60 transition-all">
+          ← Leadership
+        </Link>
+        <Link href="/sdg-work" className="text-xs px-5 py-2.5 rounded-full border border-white/[0.06] text-white/30 hover:border-white/15 hover:text-white/60 transition-all">
+          SDG Work →
+        </Link>
+        <Link href="/recognition" className="text-xs px-5 py-2.5 rounded-full border border-white/[0.06] text-white/30 hover:border-white/15 hover:text-white/60 transition-all">
+          Recognition →
+        </Link>
+      </section>
+    </PageLayout>
   );
 }

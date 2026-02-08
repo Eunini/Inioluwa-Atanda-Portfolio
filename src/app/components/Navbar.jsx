@@ -16,7 +16,7 @@ const navLinks = [
     path: "/leadership",
   },
   {
-    title: "Career & Innovation",
+    title: "Tech Career & Innovation",
     path: "/career",
   },
   {
@@ -77,17 +77,36 @@ const Navbar = () => {
         {!isScrolled && !navbarOpen && (
           <Link
             href={"/"}
-            className="flex items-center space-x-2 sm:space-x-3 text-gray-900 dark:text-white font-bold text-lg sm:text-xl"
+            className="flex items-center space-x-2 sm:space-x-3 text-gray-900 dark:text-white font-bold text-lg sm:text-xl hover:opacity-80 transition-opacity"
+            title="Inioluwa Atanda - Q Infinity"
           >
-            <Image
-              src="/images/logo.jpg"
-              alt="Logo"
-              width={32}
-              height={32}
-              className="sm:w-10 sm:h-10 rounded-full"
-            />
-            <span className="text-blue-600 dark:text-blue-400 text-xl sm:text-2xl">
-              DEVINI
+            <svg
+              viewBox="0 0 200 200"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-8 h-8 sm:w-10 sm:h-10"
+            >
+              <defs>
+                <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{stopColor:"#00d4ff",stopOpacity:1}} />
+                  <stop offset="100%" style={{stopColor:"#0099ff",stopOpacity:1}} />
+                </linearGradient>
+                <linearGradient id="leaderGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" style={{stopColor:"#ff006e",stopOpacity:1}} />
+                  <stop offset="100%" style={{stopColor:"#b537f2",stopOpacity:1}} />
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="100" r="98" fill="none" stroke="#1a1a2e" strokeWidth="2"/>
+              <circle cx="100" cy="100" r="85" fill="none" stroke="url(#techGradient)" strokeWidth="1.5" opacity="0.4"/>
+              <circle cx="100" cy="100" r="65" fill="#0f0f23" opacity="0.8"/>
+              <g transform="translate(100, 100)">
+                <circle cx="0" cy="-5" r="30" fill="none" stroke="url(#leaderGradient)" strokeWidth="3"/>
+                <path d="M 25 15 Q 35 25 30 38" fill="none" stroke="url(#leaderGradient)" strokeWidth="3" strokeLinecap="round"/>
+                <path d="M 0 12 L 0 -8" stroke="url(#techGradient)" strokeWidth="2.5" strokeLinecap="round"/>
+                <polygon points="0,-12 -4,-6 4,-6" fill="url(#techGradient)"/>
+              </g>
+            </svg>
+            <span className="text-blue-600 dark:text-blue-400 text-lg sm:text-xl">
+              DevQing
             </span>
           </Link>
         )}

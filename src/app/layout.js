@@ -1,8 +1,5 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
-import ThreeBackground from './components/ThreeBackground';
-import { PortfolioProvider } from './context/PortfolioContext';
-import { ThemeProvider } from './context/ThemeContext';
 import React from 'react';
 
 const inter = Inter({ 
@@ -53,18 +50,18 @@ export const metadata = {
     siteName: 'Inioluwa Atanda - Leadership & Impact',
     images: [
       {
+        url: '/logo.svg',
+        width: 200,
+        height: 200,
+        alt: 'Inioluwa Atanda - Q Infinity Logo',
+        type: 'image/svg+xml',
+      },
+      {
         url: '/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Inioluwa Atanda - Youth Leader & SDG Advocate',
         type: 'image/png',
-      },
-      {
-        url: '/images/logo.jpg',
-        width: 512,
-        height: 512,
-        alt: 'Inioluwa Atanda Logo',
-        type: 'image/jpeg',
       }
     ],
   },
@@ -96,10 +93,10 @@ export const metadata = {
   },
   icons: {
     icon: [
+      { url: '/logo.svg', sizes: 'any', type: 'image/svg+xml' },
       { url: '/favicon.ico', sizes: 'any', type: 'image/x-icon' },
-      { url: '/images/logo.jpg', sizes: '512x512', type: 'image/jpeg' },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: '/logo.svg',
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
@@ -142,9 +139,10 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/images/logo.jpg" type="image/jpeg" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="image_src" href="/logo.svg" />
         <meta name="theme-color" content="#3B82F6" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#1E40AF" media="(prefers-color-scheme: dark)" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -154,12 +152,8 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#3B82F6" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
-      <body className={`${inter.className} antialiased bg-white text-gray-900`} suppressHydrationWarning>
-        <ThemeProvider>
-          <PortfolioProvider>
+      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
             {children}
-          </PortfolioProvider>
-        </ThemeProvider>
       </body>
     </html>
   );

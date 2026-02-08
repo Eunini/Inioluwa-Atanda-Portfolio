@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import {SiFacebook, SiWhatsapp, SiLinkedin, SiGithub} from 'react-icons/si';
+import {SiFacebook, SiWhatsapp, SiLinkedin, SiGithub, SiX} from 'react-icons/si';
+import { MdCheckCircle } from 'react-icons/md';
 
 const Contact = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -97,13 +98,13 @@ const Contact = () => {
           <Link href="https://github.com/Eunini" target="_blank" className="group" aria-label="Visit GitHub profile">
             <SiGithub size={28} className="md:text-3xl text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300" />
           </Link>
-          <Link href="https://www.linkedin.com/in/inioluwa-atanda" target="_blank" className="group" aria-label="Visit LinkedIn profile">
-            <SiLinkedin size={28} className="md:text-3xl text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors duration-300"/>
+          <Link href="https://x.com/Dev_Qing" target="_blank" className="group" aria-label="Visit X profile">
+            <SiX size={28} className="md:text-3xl text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300"/>
           </Link>
           <Link href="https://wa.me/message/TFFG2ETW5L3CH1" target="_blank" className="group" aria-label="Send WhatsApp message">
             <SiWhatsapp size={28} className="md:text-3xl text-gray-600 dark:text-gray-300 group-hover:text-green-600 dark:group-hover:text-green-300 transition-colors duration-300"/>
           </Link>
-          <Link href="mailto:inioluwaatanda@example.com" className="group" aria-label="Send email directly">
+          <Link href="mailto:atandainioluwa371@gmail.com" className="group" aria-label="Send email directly">
             <svg className="w-7 h-7 md:w-8 md:h-8 text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors duration-300" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
@@ -114,7 +115,10 @@ const Contact = () => {
       <div className="z-10">
         {emailSubmitted ? (
           <div className="bg-green-600 dark:bg-green-700 p-6 md:p-8 rounded-2xl text-center">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Message Sent Successfully! 🎉</h3>
+            <div className="flex justify-center mb-4">
+              <MdCheckCircle className="w-12 h-12 text-white" />
+            </div>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Message Sent Successfully!</h3>
             <p className="text-white text-sm md:text-base mb-4">Thank you for reaching out. I&apos;ll get back to you within 24 hours.</p>
             <button 
               onClick={() => setEmailSubmitted(false)}
