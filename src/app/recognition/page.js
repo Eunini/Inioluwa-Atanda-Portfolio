@@ -12,15 +12,15 @@ const fadeUp = {
 
 const appointments = [
   { title: "Vice President", org: "Computer Science Department, University of Ibadan", year: "2025" },
-  { title: "Honorable Representative", org: "Representative Council", year: "2024" },
+  { title: "Honorable Representative", org: "Representative Council", year: "2023/2024" },
   { title: "Chapter Lead", org: "Interswitch Developer Community, UI", year: "2025" },
 ];
 
 const ambassadorships = [
   { brand: "Interswitch", scope: "Fintech & Developer Ecosystem", year: "2025" },
   { brand: "Cowrywise", scope: "Financial Literacy & Investment", year: "2023" },
-  { brand: "GeeksforGeeks", scope: "Campus Mentor & Technical Education", year: "2025" },
-  { brand: "Black SiS", scope: "1-Year LinkedIn Premium Subscription", year: "2025" },
+  { brand: "GeeksforGeeks", scope: "Campus Mentor & Technical Education", year: "2026" },
+  { brand: "Black SiS", scope: "1-Year LinkedIn Premium Subscription", year: "2024" },
 ];
 
 const programs = [
