@@ -50,30 +50,30 @@ export const metadata = {
     siteName: 'Inioluwa Atanda - Leadership & Impact',
     images: [
       {
-        url: '/logo.svg',
-        width: 200,
-        height: 200,
-        alt: 'Inioluwa Atanda - Q Infinity Logo',
-        type: 'image/svg+xml',
-      },
-      {
-        url: '/images/og-image.png',
+        url: 'https://inioluwa-atanda.vercel.app/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Inioluwa Atanda - Youth Leader & SDG Advocate',
         type: 'image/png',
+      },
+      {
+        url: 'https://inioluwa-atanda.vercel.app/logo.svg',
+        width: 200,
+        height: 200,
+        alt: 'Inioluwa Atanda - Q Infinity Logo',
+        type: 'image/svg+xml',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@your_twitter_handle',
-    creator: '@your_twitter_handle',
+    site: '@Dev_Qing',
+    creator: '@Dev_Qing',
     title: 'Inioluwa Atanda | Youth Leader & SDG Advocate',
     description: 'Youth Leader and SDG Advocate focused on governance, gender equity, and sustainable development with expertise in technology and systems building.',
     images: [
       {
-        url: '/images/og-image.png',
+        url: 'https://inioluwa-atanda.vercel.app/images/og-image.png',
         alt: 'Inioluwa Atanda - Youth Leader & SDG Advocate',
       }
     ],
