@@ -289,7 +289,11 @@ const AboutSection = () => {
         <div className="space-y-6">
           <div className="bg-gray-800/50 p-6 rounded-lg">
             <h4 className="text-xl font-semibold text-white mb-3">SDG Advocacy</h4>
-            <p className="text-gray-300 mb-4">AIIDEV SDG Alumni and Delegate - Actively involved in outreaches preaching Sustainable Development Goals</p>
+            <div className="mb-4">
+              <p className="text-gray-300 mb-3 font-semibold">AIIDEV Africa - Alumni & Advocate</p>
+              <p className="text-gray-300 text-sm mb-3">AIIDEV Africa is a think-tank and solution-centered organization dedicated to accelerating sustainable development across Africa through digital innovation and community-driven solutions. Their mission is to drive transformative change in Africa through impactful, inclusive SDG initiatives, aiming to reach 40% of the population across 54 countries by 2030.</p>
+              <p className="text-gray-400 text-sm italic">As an Alumni of their program, I actively contribute to SDG advocacy and community-driven sustainable development initiatives.</p>
+            </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="text-center p-3 bg-blue-900/30 rounded">
                 <div className="text-2xl font-bold text-blue-400">SDG 5</div>

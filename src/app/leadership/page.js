@@ -55,7 +55,7 @@ const initiatives = [
   {
     name: "Skillsphere Program",
     tagline: "Practical IT skills for CS students",
-    problem: "Gap between theoretical education and workplace IT readiness for non-CS students.",
+    problem: "Gap between theoretical education and workplace IT readiness for CS students.",
     model: "Modular curriculum with hands-on workshops, peer mentoring, and industry projects.",
     outcome: "Enhanced employability and digital literacy across disciplines.",
     color: "blue",
