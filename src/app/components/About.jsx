@@ -342,7 +342,7 @@ const AboutSection = () => {
             <h4 className="text-xl font-semibold text-white mb-3">Awards & Recognition</h4>
             <ul className="space-y-3">
               <li className="border-l-4 border-pink-500 pl-4">
-                <h5 className="text-pink-400 font-medium">Top 30 Participant - IAM GASA 2025</h5>
+                <h5 className="text-pink-400 font-medium">Top 30 Participant - I AM GASA 2025</h5>
                 <p className="text-gray-300 text-sm">Girls Accelerating Sustainable Actions competition - recognized for innovative solutions addressing sustainable development challenges</p>
               </li>
             </ul>
