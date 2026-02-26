@@ -60,16 +60,16 @@ export default function Home() {
   return (
     <PageLayout>
       <motion.section id="home" initial="hidden" animate="visible" className="mb-28 scroll-mt-24">
-        <motion.p variants={fadeUp} custom={0} className="text-xs tracking-[0.3em] uppercase text-cyan-400/50 mb-4">
+        <motion.p variants={fadeUp} custom={0} className="text-xs tracking-[0.3em] uppercase text-white mb-4">
           AI Software Engineer
         </motion.p>
         <motion.h1 variants={fadeUp} custom={1} className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] mb-6">
           TECH CAREER
           <br />
-          <span className="text-white/15">&amp; INNOVATION</span>
+          <span className="text-white">&amp; INNOVATION</span>
         </motion.h1>
         <motion.div variants={fadeUp} custom={2} className="w-12 h-px bg-cyan-500/40 mb-6" />
-        <motion.p variants={fadeUp} custom={3} className="text-white/30 text-lg sm:text-xl lg:text-2xl max-w-2xl leading-relaxed">
+        <motion.p variants={fadeUp} custom={3} className="text-white text-lg sm:text-xl lg:text-2xl max-w-2xl leading-relaxed">
           AI Software Engineer | Cloud & DevOps Engineer | Systems Builder.
           Building scalable products and intelligent workflows for real-world impact.
         </motion.p>
@@ -84,7 +84,7 @@ export default function Home() {
       >
         <motion.p variants={fadeUp} custom={0} className="section-label">Professional Identity</motion.p>
         <motion.div variants={fadeUp} custom={1} className="card p-8 sm:p-10">
-          <p className="text-white/30 leading-[1.8] text-base sm:text-lg lg:text-xl mb-6">
+          <p className="text-white leading-[1.8] text-base sm:text-lg lg:text-xl mb-6">
             Software engineer specializing in AI systems and cloud infrastructure. Building scalable
             applications and automated platforms. Combining technical depth with practical problem-solving
             for innovative, sustainable solutions.
@@ -108,12 +108,12 @@ export default function Home() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {skillCategories.map((cat, i) => (
             <motion.div key={cat.title} variants={fadeUp} custom={i + 1} className="card p-6">
-              <h3 className="text-xs tracking-[0.15em] uppercase text-white/40 font-semibold mb-4">{cat.title}</h3>
+              <h3 className="text-xs tracking-[0.15em] uppercase text-white font-semibold mb-4">{cat.title}</h3>
               <div className="space-y-2.5">
                 {cat.items.map((item) => (
                   <div key={item} className="flex items-center gap-2.5">
                     <div className="w-1 h-1 rounded-full bg-cyan-400/30" />
-                    <span className="text-sm sm:text-base lg:text-lg text-white/30">{item}</span>
+                    <span className="text-sm sm:text-base lg:text-lg text-white">{item}</span>
                   </div>
                 ))}
               </div>
@@ -136,13 +136,13 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-5">
                 <div>
                   <h3 className="text-lg font-bold">{project.name}</h3>
-                  <p className="text-cyan-400/40 text-sm">{project.tagline}</p>
+                  <p className="text-white text-sm">{project.tagline}</p>
                 </div>
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-white/20 hover:text-white/50 transition-colors flex items-center gap-1 flex-shrink-0"
+                  className="text-xs text-white hover:text-cyan-200 transition-colors flex items-center gap-1 flex-shrink-0"
                 >
                   Live Demo
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -151,18 +151,18 @@ export default function Home() {
                 </a>
               </div>
 
-              <p className="text-white/20 text-sm sm:text-base lg:text-lg leading-relaxed mb-5">{project.problem}</p>
+              <p className="text-white text-sm sm:text-base lg:text-lg leading-relaxed mb-5">{project.problem}</p>
 
               <div className="flex flex-wrap gap-1.5 mb-5">
                 {project.stack.map((tech) => (
-                  <span key={tech} className="text-[10px] text-white/20 px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.04]">
+                  <span key={tech} className="text-[10px] text-white px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.08]">
                     {tech}
                   </span>
                 ))}
               </div>
 
-              <p className="text-sm sm:text-base lg:text-lg text-emerald-400/40">
-                <span className="text-[10px] tracking-[0.15em] uppercase text-white/15 mr-2">Outcome:</span>
+              <p className="text-sm sm:text-base lg:text-lg text-white">
+                <span className="text-[10px] tracking-[0.15em] uppercase text-white mr-2">Outcome:</span>
                 {project.outcome}
               </p>
             </motion.div>
@@ -181,15 +181,20 @@ export default function Home() {
         <motion.div variants={fadeUp} custom={1} className="card p-6 sm:p-8">
           <div className="space-y-4">
             {[
+              { name: "Microsoft Applied Skills: Create an AI Agent", issuer: "Microsoft" },
+              { name: "Microsoft Applied Skills: Develop Generative AI Apps with Azure OpenAI", issuer: "Microsoft" },
+              { name: "Google Cloud Skill Badge: Generative AI Explorer", issuer: "Google Cloud" },
+              { name: "IBM AI Foundations Certificate", issuer: "IBM SkillsBuild" },
+              { name: "AWS Generative AI Learning Badge", issuer: "Amazon Web Services" },
               { name: "DevOps Training Certification", issuer: "Techrise by ATC Africa", role: "Team Lead" },
-              { name: "Kubernetes Cloud Native Associate", issuer: "The Linux Foundation" },
+              { name: "Kubernetes Cloud Native Associate (KCNA)", issuer: "The Linux Foundation" },
               { name: "Cloud Computing Foundation", issuer: "Ladies in Tech Africa" },
               { name: "Azure AI Fundamentals", issuer: "Microsoft Azure" },
             ].map((cert, i) => (
               <div key={cert.name} className="flex items-center justify-between pb-4 border-b border-white/[0.04] last:pb-0 last:border-b-0">
                 <div>
                   <h3 className="text-sm sm:text-base lg:text-lg font-medium">{cert.name}</h3>
-                  <p className="text-white/15 text-xs sm:text-sm lg:text-base mt-0.5">
+                  <p className="text-white text-xs sm:text-sm lg:text-base mt-0.5">
                     {cert.issuer}
                     {cert.role ? ` | ${cert.role}` : ""}
                   </p>
@@ -210,7 +215,7 @@ export default function Home() {
       >
         <motion.p variants={fadeUp} custom={0} className="section-label">Career Vision</motion.p>
         <motion.div variants={fadeUp} custom={1} className="card p-8 sm:p-10">
-          <div className="space-y-5 text-white/25 text-sm leading-[1.8]">
+          <div className="space-y-5 text-white text-sm leading-[1.8]">
             <p>
               Developing technical solutions that improve access, efficiency, and equity. Working at the
               intersection of AI, cloud infrastructure, and scalable platforms to address real-world challenges.
@@ -228,19 +233,19 @@ export default function Home() {
           href="https://calendar.app.google/HSB6gbDQXCixzhYE7"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs px-5 py-2.5 rounded-full border border-cyan-500/20 text-cyan-400/70 hover:border-cyan-400/40 hover:text-cyan-300 transition-all"
+          className="text-xs px-5 py-2.5 rounded-full border border-cyan-500/30 text-white hover:border-cyan-400/60 transition-all"
         >
           Book a Session
         </a>
         <a
           href="mailto:atandainioluwa371@gmail.com"
-          className="text-xs px-5 py-2.5 rounded-full border border-white/[0.06] text-white/40 hover:border-white/15 hover:text-white/70 transition-all"
+          className="text-xs px-5 py-2.5 rounded-full border border-white/[0.12] text-white hover:border-white/40 transition-all"
         >
           Email
         </a>
         <a
           href="/api/download-cv"
-          className="text-xs px-5 py-2.5 rounded-full border border-white/[0.06] text-white/40 hover:border-white/15 hover:text-white/70 transition-all"
+          className="text-xs px-5 py-2.5 rounded-full border border-white/[0.12] text-white hover:border-white/40 transition-all"
         >
           Download Resume
         </a>
@@ -248,7 +253,7 @@ export default function Home() {
           href="https://github.com/Eunini"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-xs px-5 py-2.5 rounded-full border border-white/[0.06] text-white/40 hover:border-white/15 hover:text-white/70 transition-all"
+          className="text-xs px-5 py-2.5 rounded-full border border-white/[0.12] text-white hover:border-white/40 transition-all"
         >
           GitHub
         </Link>
