@@ -1,12 +1,17 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import React from "react";
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  preload: true,
-  fallback: ["system-ui", "arial"],
+  variable: "--font-display",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mono",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://inioluwa-atanda.vercel.app";
@@ -140,7 +145,7 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#0ea5e9" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
-      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
+      <body className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} antialiased`} suppressHydrationWarning>
         {children}
       </body>
     </html>

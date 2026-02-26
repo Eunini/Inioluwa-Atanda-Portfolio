@@ -14,16 +14,23 @@ export default function PageLayout({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/[0.04]">
+    <div className="relative min-h-screen text-white overflow-x-clip">
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <div className="absolute -top-24 left-[8%] h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+        <div className="absolute top-16 right-[6%] h-80 w-80 rounded-full bg-violet-400/12 blur-3xl" />
+        <div className="absolute bottom-12 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-rose-400/8 blur-3xl" />
+        <div className="tech-grid-mask absolute inset-0" />
+      </div>
+
+      <nav className="fixed top-0 w-full z-50 bg-[#05070d]/45 backdrop-blur-2xl border-b border-white/[0.08]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 h-14 flex items-center justify-between">
-          <Link href="/" className="text-sm font-medium tracking-widest uppercase text-white hover:text-cyan-200 transition-colors">
+          <Link href="/" className="text-sm font-semibold tracking-[0.2em] uppercase text-white hover:text-cyan-200 transition-colors">
             Inioluwa Atanda
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-xs text-white hover:text-cyan-200 px-3 py-1.5 rounded-md hover:bg-white/[0.04] transition-all">
+              <Link key={link.href} href={link.href} className="text-xs text-white hover:text-cyan-200 px-3 py-1.5 rounded-full border border-transparent hover:border-white/[0.08] hover:bg-white/[0.04] transition-all">
                 {link.name}
               </Link>
             ))}
@@ -32,7 +39,7 @@ export default function PageLayout({ children }) {
               href="https://calendar.app.google/HSB6gbDQXCixzhYE7"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs px-4 py-1.5 rounded-full border border-cyan-500/30 text-white hover:bg-cyan-500/10 transition-all"
+              className="text-xs px-4 py-1.5 rounded-full border border-cyan-300/30 text-white bg-gradient-to-r from-cyan-400/10 via-blue-400/10 to-violet-400/10 hover:from-cyan-400/20 hover:to-violet-400/20 transition-all shadow-[0_0_0_1px_rgba(103,232,249,0.08)]"
             >
               Book a Session
             </a>
@@ -59,7 +66,7 @@ export default function PageLayout({ children }) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/[0.04] overflow-hidden"
+              className="md:hidden bg-[#070b14]/90 backdrop-blur-2xl border-t border-white/[0.08] overflow-hidden"
             >
               <div className="px-6 py-4 space-y-1">
                 {navLinks.map((link) => (
@@ -67,7 +74,7 @@ export default function PageLayout({ children }) {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="block text-sm text-white hover:text-cyan-200 py-2 transition-colors"
+                    className="block text-sm text-white hover:text-cyan-200 py-2 px-2 rounded-lg hover:bg-white/[0.03] transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -78,7 +85,7 @@ export default function PageLayout({ children }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setMenuOpen(false)}
-                    className="block text-sm py-2 text-white hover:text-cyan-200"
+                    className="block text-sm py-2 px-2 rounded-lg text-white hover:text-cyan-200 hover:bg-white/[0.03]"
                   >
                     Book a Session
                   </a>
@@ -89,13 +96,13 @@ export default function PageLayout({ children }) {
         </AnimatePresence>
       </nav>
 
-      <main className="pt-24 pb-24">
+      <main className="relative z-10 pt-24 pb-24">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10">{children}</div>
       </main>
 
-      <footer className="border-t border-white/[0.04] py-8 px-6 sm:px-10">
+      <footer className="relative z-10 border-t border-white/[0.08] py-8 px-6 sm:px-10 bg-white/[0.02]">
         <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white">Copyright {new Date().getFullYear()} Inioluwa Atanda</p>
+          <p className="text-xs text-white tracking-wide">Copyright {new Date().getFullYear()} Inioluwa Atanda</p>
           <div className="flex items-center gap-6 flex-wrap justify-center">
             <a href="https://github.com/Eunini" target="_blank" rel="noopener noreferrer" className="text-xs text-white hover:text-cyan-200 transition-colors">GitHub</a>
             <a href="https://x.com/Dev_Qing" target="_blank" rel="noopener noreferrer" className="text-xs text-white hover:text-cyan-200 transition-colors">X</a>
