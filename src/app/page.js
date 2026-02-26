@@ -23,14 +23,6 @@ const skillCategories = [
 
 const projects = [
   {
-    name: "Ubuy",
-    tagline: "Modern E-commerce Platform",
-    problem: "E-commerce platforms lacked intuitive browsing and secure checkout, leading to poor UX and abandoned carts.",
-    stack: ["React", "Next.js", "Node.js", "MongoDB", "Stripe", "Tailwind"],
-    outcome: "10K+ monthly transactions, 95% user satisfaction, 30% reduction in cart abandonment.",
-    link: "https://u-buy-six.vercel.app/",
-  },
-  {
     name: "Repropack",
     tagline: "Python Packaging Solution",
     problem: "Complex dependency management when migrating Python projects across environments.",
