@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+    <defs>
+      <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#67e8f9"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+      <radialGradient id="glow"><stop stop-color="#153344"/><stop offset="1" stop-color="#080d18"/></radialGradient>
+    </defs>
+    <rect width="1200" height="630" fill="#080d18"/>
+    <ellipse cx="1070" cy="60" rx="520" ry="490" fill="url(#glow)" opacity=".75"/>
+    <rect x="32" y="32" width="1136" height="566" rx="24" fill="none" stroke="#294250"/>
+    <path d="M80 107H120" stroke="#67e8f9" stroke-width="2"/>
+    <text x="136" y="114" fill="#b9d7e4" font-family="DejaVu Sans, sans-serif" font-size="18" letter-spacing="4">TECH CAREER / PORTFOLIO</text>
+    <svg x="80" y="205" xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Inioluwa Atanda</title>
+  <desc id="desc">IA monogram in white, cyan, and violet on a midnight blue tile.</desc>
+  <defs>
+    <linearGradient id="accent" x1="29" y1="20" x2="51" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#080d18"/>
+  <rect x="1" y="1" width="62" height="62" rx="15" stroke="#67e8f9" stroke-opacity=".24" stroke-width="2"/>
+  <path d="M14 20H24M19 20V44M14 44H24" stroke="#f0f9ff" stroke-width="5" stroke-linecap="square"/>
+  <path d="M29 44L40 20L51 44M34 35H46" stroke="url(#accent)" stroke-width="5" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>
+
+    <g font-family="DejaVu Sans, sans-serif">
+      <text x="290" y="268" fill="#f0f9ff" font-size="76" font-weight="bold" letter-spacing="-3">Inioluwa Atanda</text>
+      <text x="294" y="330" fill="#a5f3fc" font-size="30">AI Software Engineer</text>
+      <text x="294" y="379" fill="#c4b5fd" font-size="27">Cloud &amp; DevOps Engineer</text>
+      <text x="80" y="528" fill="#adbed1" font-size="20" letter-spacing="2">AI SYSTEMS</text>
+      <text x="270" y="528" fill="#67e8f9" font-size="20">/</text>
+      <text x="310" y="528" fill="#adbed1" font-size="20" letter-spacing="2">CLOUD INFRASTRUCTURE</text>
+      <text x="660" y="528" fill="#a78bfa" font-size="20">/</text>
+      <text x="700" y="528" fill="#adbed1" font-size="20" letter-spacing="2">INTELLIGENT PRODUCTS</text>
+    </g>
+    <path d="M80 465H1120" stroke="url(#line)" stroke-opacity=".4"/>
+  </svg>

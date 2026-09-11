@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -24,8 +25,9 @@ export default function PageLayout({ children }) {
 
       <nav className="fixed top-0 w-full z-50 bg-[#05070d]/45 backdrop-blur-2xl border-b border-white/[0.08]">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 h-14 flex items-center justify-between">
-          <Link href="/" className="text-sm font-semibold tracking-[0.2em] uppercase text-white hover:text-cyan-200 transition-colors">
-            Inioluwa Atanda
+          <Link href="/" className="flex items-center gap-3 text-xs sm:text-sm font-semibold tracking-[0.16em] uppercase text-white hover:text-cyan-200 transition-colors" aria-label="Inioluwa Atanda — Home">
+            <Image src="/logo.svg" alt="" width={36} height={36} className="shrink-0" priority />
+            <span>Inioluwa Atanda</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
@@ -49,6 +51,7 @@ export default function PageLayout({ children }) {
             onClick={() => setMenuOpen((prev) => !prev)}
             className="md:hidden text-white hover:text-cyan-200 p-1"
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {menuOpen ? (
@@ -102,7 +105,10 @@ export default function PageLayout({ children }) {
 
       <footer className="relative z-10 border-t border-white/[0.08] py-8 px-6 sm:px-10 bg-white/[0.02]">
         <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white tracking-wide">Copyright {new Date().getFullYear()} Inioluwa Atanda</p>
+          <div className="flex items-center gap-3">
+            <Image src="/logo.svg" alt="Inioluwa Atanda monogram" width={32} height={32} />
+            <p className="text-xs text-white tracking-wide">Copyright {new Date().getFullYear()} Inioluwa Atanda</p>
+          </div>
           <div className="flex items-center gap-6 flex-wrap justify-center">
             <a href="https://github.com/Eunini" target="_blank" rel="noopener noreferrer" className="text-xs text-white hover:text-cyan-200 transition-colors">GitHub</a>
             <a href="https://x.com/Dev_Qing" target="_blank" rel="noopener noreferrer" className="text-xs text-white hover:text-cyan-200 transition-colors">X</a>

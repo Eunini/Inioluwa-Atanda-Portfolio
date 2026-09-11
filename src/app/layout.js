@@ -1,6 +1,7 @@
 import "./globals.css";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import React from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -41,6 +42,7 @@ export const metadata = {
   authors: [{ name: "Inioluwa Atanda" }],
   creator: "Inioluwa Atanda",
   publisher: "Inioluwa Atanda",
+  applicationName: "Inioluwa Atanda Tech Portfolio",
   formatDetection: {
     email: false,
     address: false,
@@ -61,13 +63,6 @@ export const metadata = {
         height: 630,
         alt: "Inioluwa Atanda - Tech Career Portfolio",
         type: "image/png",
-      },
-      {
-        url: "/logo.svg",
-        width: 200,
-        height: 200,
-        alt: "Inioluwa Atanda Logo",
-        type: "image/svg+xml",
       },
     ],
   },
@@ -95,13 +90,18 @@ export const metadata = {
   },
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
       { url: "/logo.svg", sizes: "any", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
     ],
-    shortcut: "/logo.svg",
+    shortcut: "/favicon.ico",
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "Inioluwa Atanda",
+    statusBarStyle: "black-translucent",
+  },
   category: "technology",
   classification: "Tech Career Portfolio",
   referrer: "origin-when-cross-origin",
@@ -117,11 +117,8 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  colorScheme: "dark light",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#0ea5e9" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
-  ],
+  colorScheme: "dark",
+  themeColor: "#080d18",
 };
 
 export default function RootLayout({ children }) {
@@ -132,21 +129,10 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="image_src" href="/logo.svg" />
-        <meta name="theme-color" content="#0ea5e9" media="(prefers-color-scheme: light)" />
-        <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Inioluwa Atanda Tech Portfolio" />
-        <meta name="application-name" content="Inioluwa Atanda Tech Portfolio" />
-        <meta name="msapplication-TileColor" content="#0ea5e9" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} antialiased`} suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );

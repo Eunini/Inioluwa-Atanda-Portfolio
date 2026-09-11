@@ -2,15 +2,16 @@
 import React, { useRef } from "react";
 import ProjectCard from "../components/ProjectCard";
 import { motion, useInView } from "framer-motion";
+import { currentProjects } from "../lib/projects";
 
 const projectsData = [
-  {
-    id: 1,
-    title: "Ubuy",
-    description: "A modern e-commerce website specializing in mobile phones. Features intuitive product browsing, detailed specifications, and secure checkout process for seamless online shopping experience.",
-    image: "/images/projects/ubuy.png",
-    previewUrl: "https://u-buy-six.vercel.app/",
-  },
+  ...currentProjects.map((project) => ({
+    id: project.name,
+    title: project.name,
+    description: project.description,
+    image: project.image,
+    previewUrl: project.link,
+  })),
   {
     id: 2,
     title: "Repropack",
@@ -55,7 +56,7 @@ const ProjectsSection = () => {
       <ul ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-7xl mx-auto px-4 sm:px-6">
         {projectsData.map((project, index) => (
           <motion.li
-            key={index}
+            key={project.id}
             variants={cardVariants}
             initial="initial"
             animate={isInView ? "animate" : "initial"}

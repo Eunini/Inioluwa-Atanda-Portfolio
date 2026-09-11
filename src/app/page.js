@@ -2,6 +2,7 @@
 import PageLayout from "./components/PageLayout";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { currentProjects } from "./lib/projects";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -22,6 +23,7 @@ const skillCategories = [
 ];
 
 const projects = [
+  ...currentProjects,
   {
     name: "Repropack",
     tagline: "Python Packaging Solution",
@@ -144,16 +146,17 @@ export default function Home() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${project.linkLabel || "Live Demo"}: ${project.name}`}
                   className="text-xs text-white hover:text-cyan-200 transition-colors flex items-center gap-1 flex-shrink-0 rounded-full border border-white/[0.08] px-2.5 py-1 bg-white/[0.02]"
                 >
-                  Live Demo
+                  {project.linkLabel || "Live Demo"}
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
                   </svg>
                 </a>
               </div>
 
-              <p className="text-white text-sm sm:text-base lg:text-lg leading-relaxed mb-5">{project.problem}</p>
+              <p className="text-white text-sm sm:text-base lg:text-lg leading-relaxed mb-5">{project.description || project.problem}</p>
 
               <div className="flex flex-wrap gap-1.5 mb-5">
                 {project.stack.map((tech) => (
