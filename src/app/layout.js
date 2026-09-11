@@ -16,15 +16,20 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://inioluwa-atanda.vercel.app";
+const siteTitle = "Inioluwa Atanda | AI Software Engineer & Cloud DevOps Engineer";
+const siteDescription =
+  "Inioluwa Atanda is an AI Software Engineer and Cloud & DevOps Engineer building voice AI, automation, and scalable platforms. Explore Kami AI, RealAlma, projects, skills, and certifications.";
+// Give browsers and link preview caches fresh URLs for the new personal branding.
+const brandVersion = "ia-20260911";
+const socialImage = `/images/og-image.png?v=${brandVersion}`;
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Inioluwa Atanda | AI Software Engineer & Cloud DevOps Engineer",
+    default: siteTitle,
     template: "%s | Inioluwa Atanda",
   },
-  description:
-    "Tech career portfolio of Inioluwa Atanda, an AI software engineer and cloud DevOps engineer building scalable products, automation systems, and cloud-native platforms.",
+  description: siteDescription,
   keywords: [
     "Inioluwa Atanda",
     "AI Software Engineer",
@@ -52,13 +57,12 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    title: "Inioluwa Atanda | AI Software Engineer & Cloud DevOps Engineer",
-    description:
-      "Tech career portfolio showcasing AI systems, cloud infrastructure, software engineering projects, and certifications.",
+    title: siteTitle,
+    description: siteDescription,
     siteName: "Inioluwa Atanda - Tech Career Portfolio",
     images: [
       {
-        url: "/images/og-image.png",
+        url: socialImage,
         width: 1200,
         height: 630,
         alt: "Inioluwa Atanda - Tech Career Portfolio",
@@ -70,10 +74,9 @@ export const metadata = {
     card: "summary_large_image",
     site: "@Dev_Qing",
     creator: "@Dev_Qing",
-    title: "Inioluwa Atanda | AI Software Engineer & Cloud DevOps Engineer",
-    description:
-      "AI software engineer and cloud DevOps engineer building scalable systems, automation workflows, and cloud-native products.",
-    images: ["/images/og-image.png"],
+    title: siteTitle,
+    description: siteDescription,
+    images: [{ url: socialImage, alt: siteTitle }],
   },
   robots: {
     index: true,
@@ -90,11 +93,12 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
-      { url: "/logo.svg", sizes: "any", type: "image/svg+xml" },
+      { url: `/favicon.ico?v=${brandVersion}`, sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+      { url: `/favicon-48x48.png?v=${brandVersion}`, sizes: "48x48", type: "image/png" },
+      { url: `/logo.svg?v=${brandVersion}`, sizes: "any", type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.ico",
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: `/favicon.ico?v=${brandVersion}`,
+    apple: [{ url: `/apple-touch-icon.png?v=${brandVersion}`, sizes: "180x180", type: "image/png" }],
   },
   manifest: "/site.webmanifest",
   appleWebApp: {
