@@ -1,18 +1,13 @@
 import "./globals.css";
-import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import React from "react";
 import { Analytics } from "@vercel/analytics/next";
 
-const spaceGrotesk = Space_Grotesk({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-display",
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-mono",
+  preload: true,
+  fallback: ["system-ui", "arial"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://inioluwa-atanda.vercel.app";
@@ -20,7 +15,7 @@ const siteTitle = "Inioluwa Atanda | AI Software Engineer & Cloud DevOps Enginee
 const siteDescription =
   "Inioluwa Atanda is an AI Software Engineer and Cloud & DevOps Engineer building voice AI, automation, and scalable platforms. Explore Kami AI, RealAlma, projects, skills, and certifications.";
 // Give browsers and link preview caches fresh URLs for the new personal branding.
-const brandVersion = "ia-20260911";
+const brandVersion = "ia-monochrome-20260911";
 const socialImage = `/images/og-image.png?v=${brandVersion}`;
 
 export const metadata = {
@@ -122,7 +117,7 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 5,
   colorScheme: "dark",
-  themeColor: "#080d18",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({ children }) {
@@ -134,7 +129,7 @@ export default function RootLayout({ children }) {
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       </head>
-      <body className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         {children}
         <Analytics />
       </body>

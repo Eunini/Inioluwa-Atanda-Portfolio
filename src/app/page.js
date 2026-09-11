@@ -54,26 +54,24 @@ export default function Home() {
   return (
     <PageLayout>
       <motion.section id="home" initial="hidden" animate="visible" className="relative mb-28 scroll-mt-24">
-        <div className="pointer-events-none absolute -inset-x-6 -top-8 h-[28rem] rounded-[2rem] bg-gradient-to-br from-cyan-400/8 via-blue-400/6 to-violet-400/8 blur-3xl" />
-        <motion.p variants={fadeUp} custom={0} className="inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-400/8 px-4 py-2 text-xs tracking-[0.2em] uppercase text-white mb-5">
-          <span className="inline-block h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_14px_rgba(52,211,153,0.7)]" />
+        <motion.p variants={fadeUp} custom={0} className="text-xs tracking-[0.3em] uppercase text-white mb-4">
           AI Software Engineer
         </motion.p>
-        <motion.h1 variants={fadeUp} custom={1} className="relative z-10 text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] mb-6">
+        <motion.h1 variants={fadeUp} custom={1} className="relative z-10 text-[clamp(2rem,11.5vw,3rem)] sm:text-7xl lg:text-8xl font-black tracking-tight leading-[0.9] mb-6">
           TECH CAREER
           <br />
-          <span className="text-gradient-tech">&amp; INNOVATION</span>
+          <span className="text-white">&amp; INNOVATION</span>
         </motion.h1>
-        <motion.div variants={fadeUp} custom={2} className="w-28 h-px bg-gradient-to-r from-cyan-300 via-blue-300 to-violet-300 mb-6 shadow-[0_0_24px_rgba(103,232,249,0.25)]" />
+        <motion.div variants={fadeUp} custom={2} className="w-12 h-px bg-white/30 mb-6" />
         <motion.p variants={fadeUp} custom={3} className="text-white text-lg sm:text-xl lg:text-2xl max-w-2xl leading-relaxed">
           AI Software Engineer | Cloud & DevOps Engineer | Systems Builder.
           Building scalable products and intelligent workflows for real-world impact.
         </motion.p>
         <motion.div variants={fadeUp} custom={4} className="mt-6 flex flex-wrap gap-2">
-          <span className="badge badge-cyan">AI Agents</span>
-          <span className="badge badge-blue">Cloud Architecture</span>
-          <span className="badge badge-purple">Generative AI Apps</span>
-          <span className="badge badge-emerald">DevOps & Automation</span>
+          <span className="badge badge-white">AI Agents</span>
+          <span className="badge badge-white">Cloud Architecture</span>
+          <span className="badge badge-white">Generative AI Apps</span>
+          <span className="badge badge-white">DevOps & Automation</span>
         </motion.div>
       </motion.section>
 
@@ -93,7 +91,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap gap-2">
             {["Artificial Intelligence", "Distributed Systems", "Cloud & DevOps", "Platform Engineering", "Impact-Driven Tech"].map((tag) => (
-              <span key={tag} className="badge badge-cyan">{tag}</span>
+              <span key={tag} className="badge badge-white">{tag}</span>
             ))}
           </div>
         </motion.div>
@@ -110,12 +108,11 @@ export default function Home() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {skillCategories.map((cat, i) => (
             <motion.div key={cat.title} variants={fadeUp} custom={i + 1} className="card p-6 relative overflow-hidden">
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-cyan-300/50 via-violet-300/40 to-transparent" />
               <h3 className="text-xs tracking-[0.15em] uppercase text-white font-semibold mb-4">{cat.title}</h3>
               <div className="space-y-2.5">
                 {cat.items.map((item) => (
                   <div key={item} className="flex items-center gap-2.5">
-                    <div className="w-1 h-1 rounded-full bg-cyan-400/30" />
+                    <div className="w-1 h-1 rounded-full bg-white/30" />
                     <span className="text-sm sm:text-base lg:text-lg text-white">{item}</span>
                   </div>
                 ))}
@@ -135,19 +132,18 @@ export default function Home() {
         <motion.p variants={fadeUp} custom={0} className="section-label">Selected Projects</motion.p>
         <div className="space-y-3">
           {projects.map((project, i) => (
-            <motion.div key={project.name} variants={fadeUp} custom={i + 1} className="card card-cyan p-6 sm:p-8 group relative overflow-hidden">
-              <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-cyan-300 via-blue-300 to-violet-300 opacity-80" />
+            <motion.div key={project.name} variants={fadeUp} custom={i + 1} className="card p-6 sm:p-8 group relative overflow-hidden">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-5">
                 <div>
                   <h3 className="text-lg font-bold tracking-tight">{project.name}</h3>
-                  <p className="text-cyan-100 text-sm">{project.tagline}</p>
+                  <p className="text-white text-sm">{project.tagline}</p>
                 </div>
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${project.linkLabel || "Live Demo"}: ${project.name}`}
-                  className="text-xs text-white hover:text-cyan-200 transition-colors flex items-center gap-1 flex-shrink-0 rounded-full border border-white/[0.08] px-2.5 py-1 bg-white/[0.02]"
+                  className="text-xs text-white hover:text-neutral-300 transition-colors flex items-center gap-1 flex-shrink-0 rounded-full border border-white/[0.08] px-2.5 py-1 bg-white/[0.02]"
                 >
                   {project.linkLabel || "Live Demo"}
                   <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -203,12 +199,12 @@ export default function Home() {
                 <div className="flex-1 min-w-0">
                   <h3 className="text-sm sm:text-base lg:text-lg font-medium leading-relaxed">{cert.name}</h3>
                   <div className="mt-2 flex flex-wrap gap-2">
-                    <span className="badge badge-cyan">{cert.issuer}</span>
-                    {cert.role ? <span className="badge badge-emerald">{cert.role}</span> : null}
+                    <span className="badge badge-white">{cert.issuer}</span>
+                    {cert.role ? <span className="badge badge-white">{cert.role}</span> : null}
                   </div>
                 </div>
-                <div className="flex items-center gap-2 text-cyan-100">
-                  <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.55)]" />
+                <div className="flex items-center gap-2 text-white">
+                  <span className="h-2 w-2 rounded-full bg-white/50" />
                   <span className="text-xs tracking-[0.14em] uppercase">Verified Learning</span>
                 </div>
               </div>
@@ -246,14 +242,14 @@ export default function Home() {
               <p className="section-label mb-2">Contact & Next Steps</p>
               <p className="text-white text-sm sm:text-base">Let&apos;s talk about AI, cloud infrastructure, automation systems, or product engineering.</p>
             </div>
-            <div className="h-px sm:h-10 sm:w-px w-full bg-gradient-to-r sm:bg-gradient-to-b from-cyan-300/30 via-violet-300/20 to-transparent" />
+            <div className="h-px sm:h-10 sm:w-px w-full bg-white/10" />
           </div>
           <div className="flex flex-wrap gap-3 justify-start">
             <a
               href="https://calendar.app.google/HSB6gbDQXCixzhYE7"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs px-5 py-2.5 rounded-full border border-cyan-300/30 text-white bg-gradient-to-r from-cyan-400/12 via-blue-400/10 to-violet-400/12 hover:from-cyan-400/20 hover:to-violet-400/18 transition-all"
+              className="text-xs px-5 py-2.5 rounded-full border border-white/30 text-white hover:bg-white/10 transition-all"
             >
               Book a Session
             </a>

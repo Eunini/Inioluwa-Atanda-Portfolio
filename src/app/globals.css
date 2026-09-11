@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg-0: #05070d;
-  --bg-1: #0b1020;
-  --bg-2: #10182d;
-  --text: #f8fbff;
-  --muted: #cdd9f0;
-  --line: rgba(255, 255, 255, 0.12);
-  --panel: rgba(12, 16, 28, 0.78);
-  --panel-strong: rgba(16, 22, 38, 0.92);
-  --cyan: #67e8f9;
-  --blue: #60a5fa;
-  --violet: #a78bfa;
-  --rose: #fb7185;
-  --emerald: #34d399;
-}
-
 /* ========================================
    CORE RESET & BASE
    ======================================== */
@@ -30,53 +14,22 @@
 
 html {
   scroll-behavior: smooth;
-  background: var(--bg-0);
+  background-color: #000;
+  color-scheme: dark;
 }
 
 body {
-  background:
-    radial-gradient(900px 620px at 12% -8%, rgba(103, 232, 249, 0.14), transparent 65%),
-    radial-gradient(860px 560px at 92% 5%, rgba(167, 139, 250, 0.16), transparent 62%),
-    radial-gradient(740px 520px at 60% 100%, rgba(251, 113, 133, 0.08), transparent 68%),
-    linear-gradient(180deg, var(--bg-2) 0%, var(--bg-1) 42%, var(--bg-0) 100%);
-  color: var(--text);
+  background-color: #000;
+  color: #fff;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  font-family: var(--font-display), "Segoe UI", sans-serif;
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 26px 26px;
-  opacity: 0.55;
-  mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
-  z-index: -2;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(320px 220px at 20% 18%, rgba(103, 232, 249, 0.08), transparent 75%),
-    radial-gradient(380px 260px at 82% 14%, rgba(167, 139, 250, 0.10), transparent 78%),
-    radial-gradient(420px 280px at 55% 78%, rgba(52, 211, 153, 0.06), transparent 82%);
-  z-index: -1;
 }
 
 ::selection {
-  background: rgba(103, 232, 249, 0.22);
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
 
 /* ========================================
@@ -166,64 +119,20 @@ body::after {
   background-clip: text;
 }
 
-.text-gradient-blue {
-  background: linear-gradient(135deg, #60a5fa, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-cyan {
-  background: linear-gradient(135deg, #22d3ee, #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-tech {
-  background: linear-gradient(135deg, #67e8f9 0%, #60a5fa 35%, #a78bfa 70%, #fb7185 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* ========================================
    CARD SYSTEM
    ======================================== */
 
 .card {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01)),
-    linear-gradient(180deg, var(--panel), var(--panel-strong));
-  border: 1px solid var(--line);
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
   border-radius: 16px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow:
-    0 18px 42px rgba(3, 5, 10, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
 }
 
 .card:hover {
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: #2a2a2a;
   transform: translateY(-2px);
-  box-shadow:
-    0 22px 48px rgba(3, 5, 10, 0.42),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.card-blue:hover {
-  border-color: rgba(96, 165, 250, 0.34);
-  box-shadow:
-    0 0 0 1px rgba(96, 165, 250, 0.12),
-    0 24px 52px rgba(59, 130, 246, 0.14);
-}
-
-.card-cyan:hover {
-  border-color: rgba(103, 232, 249, 0.38);
-  box-shadow:
-    0 0 0 1px rgba(103, 232, 249, 0.12),
-    0 24px 52px rgba(6, 182, 212, 0.14);
 }
 
 /* ========================================
@@ -239,51 +148,14 @@ body::after {
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  border-radius: 999px;
+  border-radius: 6px;
   border: 1px solid;
-  backdrop-filter: blur(6px);
-}
-
-.badge-blue {
-  color: #dbeafe;
-  border-color: rgba(96, 165, 250, 0.3);
-  background: rgba(59, 130, 246, 0.14);
-}
-
-.badge-cyan {
-  color: #ecfeff;
-  border-color: rgba(103, 232, 249, 0.34);
-  background: rgba(6, 182, 212, 0.16);
-}
-
-.badge-emerald {
-  color: #ecfdf5;
-  border-color: rgba(52, 211, 153, 0.3);
-  background: rgba(16, 185, 129, 0.14);
-}
-
-.badge-purple {
-  color: #f5f3ff;
-  border-color: rgba(167, 139, 250, 0.3);
-  background: rgba(139, 92, 246, 0.14);
-}
-
-.badge-orange {
-  color: #fff7ed;
-  border-color: rgba(251, 146, 60, 0.3);
-  background: rgba(249, 115, 22, 0.14);
-}
-
-.badge-rose {
-  color: #fff1f2;
-  border-color: rgba(251, 113, 133, 0.3);
-  background: rgba(244, 63, 94, 0.14);
 }
 
 .badge-white {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 /* ========================================
@@ -291,23 +163,11 @@ body::after {
    ======================================== */
 
 .section-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
   font-size: 11px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #fff;
   margin-bottom: 1rem;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  text-shadow: 0 0 24px rgba(103, 232, 249, 0.16);
-}
-
-.section-label::before {
-  content: "";
-  width: 24px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(103, 232, 249, 0.85), rgba(167, 139, 250, 0.85));
 }
 
 /* ========================================
@@ -341,13 +201,4 @@ body::after {
 
 .link-hover:hover::after {
   width: 100%;
-}
-
-.tech-grid-mask {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
-  opacity: 0.35;
 }

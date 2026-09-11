@@ -1,13 +1,13 @@
 {
-  "name": "Inioluwa Atanda — Tech Career Portfolio",
+  "name": "Inioluwa Atanda \u2014 Tech Career Portfolio",
   "short_name": "Inioluwa Atanda",
   "description": "AI software engineering, cloud infrastructure, and intelligent products by Inioluwa Atanda.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#080d18",
-  "theme_color": "#080d18",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "lang": "en-US",
   "categories": [
     "technology",

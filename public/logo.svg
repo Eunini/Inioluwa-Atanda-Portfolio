@@ -1,14 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">Inioluwa Atanda</title>
-  <desc id="desc">IA monogram in white, cyan, and violet on a midnight blue tile.</desc>
-  <defs>
-    <linearGradient id="accent" x1="29" y1="20" x2="51" y2="44" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#67e8f9"/>
-      <stop offset="1" stop-color="#a78bfa"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="16" fill="#080d18"/>
-  <rect x="1" y="1" width="62" height="62" rx="15" stroke="#67e8f9" stroke-opacity=".24" stroke-width="2"/>
-  <path d="M14 20H24M19 20V44M14 44H24" stroke="#f0f9ff" stroke-width="5" stroke-linecap="square"/>
-  <path d="M29 44L40 20L51 44M34 35H46" stroke="url(#accent)" stroke-width="5" stroke-linecap="square" stroke-linejoin="round"/>
+  <desc id="desc">White IA monogram on a black tile.</desc>
+  <rect width="64" height="64" rx="16" fill="#000000"/>
+  <rect x="1" y="1" width="62" height="62" rx="15" stroke="#ffffff" stroke-opacity=".24" stroke-width="2"/>
+  <path d="M14 20H24M19 20V44M14 44H24" stroke="#ffffff" stroke-width="5" stroke-linecap="square"/>
+  <path d="M29 44L40 20L51 44M34 35H46" stroke="#ffffff" stroke-width="5" stroke-linecap="square" stroke-linejoin="round"/>
 </svg>
