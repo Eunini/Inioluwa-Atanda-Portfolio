@@ -259,12 +259,6 @@ export default function Home() {
             >
               Email
             </a>
-            <a
-              href="/api/download-cv"
-              className="text-xs px-5 py-2.5 rounded-full border border-white/[0.12] text-white hover:border-white/40 transition-all"
-            >
-              Download Resume
-            </a>
             <Link
               href="https://github.com/Eunini"
               target="_blank"

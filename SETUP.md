@@ -40,25 +40,12 @@ FROM_EMAIL=contact@yourdomain.com
 3. Fill out and submit the form
 4. Check your email for the message
 
-## Download CV Button
-
-The download CV button should work automatically. Make sure:
-
-1. Your CV file is named `CV.pdf` and located in the `public` folder
-2. The file is accessible at `http://localhost:3000/CV.pdf`
-3. Update the filename in `HeroSection.jsx` if you use a different name
-
 ## Troubleshooting
 
 ### Contact Form Issues:
 - **"Email service not configured"**: Check your environment variables
 - **Network errors**: Verify your API key and FROM_EMAIL
 - **Domain verification issues**: Use a verified domain email for FROM_EMAIL
-
-### CV Download Issues:
-- **File not found**: Ensure CV.pdf exists in the public folder
-- **Download not starting**: Check browser settings for downloads
-- **File name**: Update the download attribute in HeroSection.jsx if needed
 
 ## Alternative Email Setup
 
